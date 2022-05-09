@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :group_friends
+  resources :groups
+  resources :friendships
+  resources :friends
   resources :interactions
   resources :users
   # Routing logic: fallback requests for React Router.
