@@ -20,6 +20,6 @@ class ApplicationController < ActionController::API
   end
 
   def record_invalid(invalid)
-    render json: { error: invalid }, status: 422
+    render json: { error: invalid.record.errors.full_messages }, status: 422
   end
 end
