@@ -1,23 +1,34 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./routes/Dashboard";
 import FriendPage from "./routes/FriendPage";
 import LoginPage from "./routes/LoginPage";
 import RegistrationPage from "./routes/RegistrationPage";
 import Header from "./structure/Header";
 import React, { useState, useEffect } from "react";
+import {useNavigate} from 'react-router'
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  // const [isLoggedIn, setisLoggedIn] = useState(false);
+  const [user ,setUser] = useState({}) 
+
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+    fetch('/auth')
+    .then(r => r.ok ? r.json().then(data => setUser(data)) : navigate('/login'))
+  },[])
   // TODO: have dashboard reroute to LoginPage if not logged in
   // TODO: have friend page index into specific friend
 
+
+
   return (
     <>
-      {loggedIn && <Header />}
+      { user?.id ? <Header setUser={setUser}/> : null }
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegistrationPage />} />
+        <Route path="/login" element={<LoginPage user={user} setUser={setUser}/>} />
+        <Route path="/register" element={<RegistrationPage user={user} setUser={setUser}/>} />
         <Route path="/friend" element={<FriendPage />} />
       </Routes>
     </>

@@ -1,23 +1,57 @@
 import React, { useState, useEffect } from "react";
+import {useNavigate} from 'react-router'
 
-function RegistrationForm(props) {
+function RegistrationForm({setUser}) {
+  const defaultForm = {
+    first_name: '',
+    last_name: '',
+    email:'',
+    password:'',
+    password_confirmation:''
+  }
+
+  const navigate = useNavigate()
+
+  const [signUp ,setSignUp] = useState(defaultForm) 
+
+
+
+  function handleSignUp(e) {
+    e.preventDefault()
+    fetch('http://localhost:3000/signup',{
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(signUp)})
+      .then(r => r.json())
+      .then(data => {
+        setUser(data)
+        navigate('/')
+      })
+  }
+
+
+  function handleSignUpChange(e) {
+    setSignUp(prev => ({...prev, [e.target.name]: e.target.value}))
+  }
+
+
   return (
-    <form>
+    <form onSubmit={handleSignUp}>
       <label>
         first name
-        <input type="text" name="firstName" />
+        <input onChange={handleSignUpChange} name="first_name" value={signUp.first_name}/>
       </label>
       <label>
         last name
-        <input type="text" name="lastName" />
+        <input onChange={handleSignUpChange} name="last_name" value={signUp.last_name}/>
       </label>
       <label>
         email
-        <input type="text" name="email" />
+        <input onChange={handleSignUpChange} name="email" value={signUp.email}/>
       </label>
       <label>
         password
-        <input type="password" name="password" />
+        <input onChange={handleSignUpChange} type="password" name="password" value={signUp.password}/>
         <ul>
           <li>has 8 or more characters</li>
           <li>has both uppercase and lowercase letters</li>
@@ -27,7 +61,7 @@ function RegistrationForm(props) {
       </label>
       <label>
         password confirmation
-        <input type="password" name="passwordConfirmation" />
+        <input onChange={handleSignUpChange} type="password" name="password_confirmation" value={signUp.password_confirmation}/>
         <ul>
           <li>matches password</li>
         </ul>
