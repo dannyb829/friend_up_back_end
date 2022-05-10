@@ -4,10 +4,10 @@ import UserInfo from "../dashboard/UserInfo";
 import UpcomingInfo from "../dashboard/UpcomingInfo";
 import FriendGallery from "../dashboard/FriendGallery";
 
-function Dashboard(props) {
+function Dashboard({ user }) {
   return (
     <div>
-      <UserInfo />
+      <UserInfo user={user} />
       <UpcomingInfo />
       <FriendGallery />
     </div>
