@@ -189,3 +189,21 @@ Migrating to CreateGroupFriends (20220509170735)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
   [1m[36mGroup Load (0.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mInteraction Load (0.5ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGroup Load (1.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."user_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."user_id" = $1 ORDER BY "groups"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."user_id" = $1 ORDER BY "groups"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.7ms)[0m  [1m[34mSELECT "friends".* FROM "friends" INNER JOIN "group_friends" ON "friends"."id" = "group_friends"."friend_id" WHERE "group_friends"."group_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["group_id", 1], ["LIMIT", 11]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFriend Load (0.7ms)[0m  [1m[34mSELECT "friends".* FROM "friends" INNER JOIN "friendships" ON "friends"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" INNER JOIN "friendships" ON "friends"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "first_name", "last_name", "email", "password_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2022-05-10 01:27:09.289046"], ["updated_at", "2022-05-10 01:27:09.289046"], ["first_name", "Greg"], ["last_name", "Samuels"], ["email", "something@bitch.com"], ["password_digest", "$2a$12$QZvCwOmJjGxPE1aa5/zuBexZECT.ed0fbELBbcfU7gnV/EagdWCdO"]]
+  [1m[36mTRANSACTION (14.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
