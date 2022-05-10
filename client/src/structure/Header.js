@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 
 function Header(props) {
   return (
-    <div>
-      <Link to="/">
-        <h3>friendup</h3>
-      </Link>
+    <div className="header">
+      <Link to="/">friendup</Link>
       <button>log out</button>
     </div>
   );

@@ -461,3 +461,8 @@ Processing by UsersController#create as */*
 Completed 422 Unprocessable Entity in 262ms (Views: 0.7ms | ActiveRecord: 2.7ms | Allocations: 7112)
 
 
+  [1m[36mFriend Load (2.6ms)[0m  [1m[34mSELECT "friends".* FROM "friends" ORDER BY "friends"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-05-10 15:07:11 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
