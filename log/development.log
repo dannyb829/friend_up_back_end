@@ -207,3 +207,257 @@ Migrating to CreateGroupFriends (20220509170735)
   [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "first_name", "last_name", "email", "password_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2022-05-10 01:27:09.289046"], ["updated_at", "2022-05-10 01:27:09.289046"], ["first_name", "Greg"], ["last_name", "Samuels"], ["email", "something@bitch.com"], ["password_digest", "$2a$12$QZvCwOmJjGxPE1aa5/zuBexZECT.ed0fbELBbcfU7gnV/EagdWCdO"]]
   [1m[36mTRANSACTION (14.5ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/signup" for 127.0.0.1 at 2022-05-10 10:00:44 -0400
+  
+ActiveRecord::NoDatabaseError (connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  database "react_rails_api_project_template_development" does not exist
+):
+  
+activerecord (6.1.5.1) lib/active_record/connection_adapters/postgresql_adapter.rb:81:in `rescue in new_client'
+activerecord (6.1.5.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.5.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.5.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.5.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.5.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.5.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.5.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.5.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.5.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.5.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.5.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.5.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.5.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.5.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.5.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.5.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.5.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.5.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.5.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.5.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.5.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.5.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.5.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.5.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+railties (6.1.5.1) lib/rails/engine.rb:539:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (248.4ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_development" ENCODING = 'unicode'[0m
+  [1m[35m (137.9ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_test" ENCODING = 'unicode'[0m
+  [1m[35m (16.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (46.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1087325618115650655)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220506225953)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (43.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506225953"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateInteractions (20220506230103)
+  [1m[36mTRANSACTION (40.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "interactions" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506230103"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDetailsToUsers (20220509135503)
+  [1m[36mTRANSACTION (39.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.1ms)[0m  [1m[35mALTER TABLE "users" ADD "first_name" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "last_name" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "phone_number" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "image_url" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "bio" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220509135503"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDetailsToIntetractions (20220509164244)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "interactions" ADD "user_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "interactions" ADD "friend_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "interactions" ADD "in_person?" boolean[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "interactions" ADD "date" timestamp[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "interactions" ADD "score" float[0m
+  [1m[35m (41.6ms)[0m  [1m[35mALTER TABLE "interactions" ADD "location_or_method" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "interactions" ADD "description" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220509164244"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFriends (20220509165718)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (45.6ms)[0m  [1m[35mCREATE TABLE "friends" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "phone_number" integer, "image_url" character varying, "description" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220509165718"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFriendships (20220509170039)
+  [1m[36mTRANSACTION (40.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" integer, "friend_id" integer, "meeting_reminder_interval" integer, "meeting_max" integer, "communication_reminder_interval" integer, "communication_max" integer, "friendship_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220509170039"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGroups (20220509170150)
+  [1m[36mTRANSACTION (39.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "groups" ("id" bigserial primary key, "user_id" integer, "group_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220509170150"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGroupFriends (20220509170735)
+  [1m[36mTRANSACTION (40.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "group_friends" ("id" bigserial primary key, "group_id" integer, "friend_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220509170735"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-10 14:05:46.938064"], ["updated_at", "2022-05-10 14:05:46.938064"]]
+  [1m[36mTRANSACTION (39.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1087325618115650655)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "first_name", "last_name", "email", "phone_number", "password_digest", "image_url", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["created_at", "2022-05-10 14:05:54.428312"], ["updated_at", "2022-05-10 14:05:54.428312"], ["first_name", "Daniel"], ["last_name", "Brito"], ["email", "dannyb829@gmail.com"], ["phone_number", 555], ["password_digest", "$2a$12$Bd7cc6XA9ixoP4I5HtiQhufSJfsgGNNZSU5CuEgrMMIYaYMn4ga.C"], ["image_url", "url"], ["bio", "nice guy"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "first_name", "last_name", "email", "phone_number", "password_digest", "image_url", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["created_at", "2022-05-10 14:05:54.686993"], ["updated_at", "2022-05-10 14:05:54.686993"], ["first_name", "Noah"], ["last_name", "Reece"], ["email", "noahR25@gmail.com"], ["phone_number", 545], ["password_digest", "$2a$12$TnXOt2HCvaEGhzzVA/h7RO1ZHL2C/VExuzdi8bwmeljyeW2cEJG9G"], ["image_url", "url"], ["bio", "nice guy"]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "first_name", "last_name", "email", "phone_number", "password_digest", "image_url", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["created_at", "2022-05-10 14:05:54.941192"], ["updated_at", "2022-05-10 14:05:54.941192"], ["first_name", "Chett"], ["last_name", "Tiller"], ["email", "brewchetta@gmail.com"], ["phone_number", 556], ["password_digest", "$2a$12$/gAo7/5jfCLQ6uoRxnmyvOGPStiNU1o/yEt5vCon/n65yBwvU2R8q"], ["image_url", "url"], ["bio", "nicest guy"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFriend Create (0.6ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone_number", "image_url", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Dwayne"], ["last_name", "Johnson"], ["email", "whattherockscookin@gmail.com"], ["phone_number", 123], ["image_url", "something"], ["description", "very strong guy"], ["created_at", "2022-05-10 14:05:54.963833"], ["updated_at", "2022-05-10 14:05:54.963833"]]
+  [1m[36mTRANSACTION (40.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFriend Create (0.4ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone_number", "image_url", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Kanye"], ["last_name", "West"], ["email", "though_the_wire@gmail.com"], ["phone_number", 312], ["image_url", "something"], ["description", "very confident guy"], ["created_at", "2022-05-10 14:05:55.009286"], ["updated_at", "2022-05-10 14:05:55.009286"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFriend Create (0.4ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone_number", "image_url", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Aubery"], ["last_name", "Graham"], ["email", "youusedtocallme@gmail.com"], ["phone_number", 666], ["image_url", "something"], ["description", "very talented guy"], ["created_at", "2022-05-10 14:05:55.016725"], ["updated_at", "2022-05-10 14:05:55.016725"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFriend Create (0.3ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone_number", "image_url", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Beyonce"], ["last_name", "Knowles"], ["email", "destinyschild@gmail.com"], ["phone_number", 150], ["image_url", "something"], ["description", "very talented woman"], ["created_at", "2022-05-10 14:05:55.021621"], ["updated_at", "2022-05-10 14:05:55.021621"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFriend Create (0.3ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone_number", "image_url", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Kelly"], ["last_name", "Clarkson"], ["email", "becauseofyou@gmail.com"], ["phone_number", 0], ["image_url", "something"], ["description", "very sad songs"], ["created_at", "2022-05-10 14:05:55.025511"], ["updated_at", "2022-05-10 14:05:55.025511"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFriend Create (0.3ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone_number", "image_url", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "George"], ["last_name", "Clooney"], ["email", "oceans13@gmail.com"], ["phone_number", 11], ["image_url", "something"], ["description", "very awesome movies"], ["created_at", "2022-05-10 14:05:55.029969"], ["updated_at", "2022-05-10 14:05:55.029969"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFriendship Create (0.6ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "meeting_reminder_interval", "meeting_max", "communication_reminder_interval", "communication_max", "friendship_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 3], ["meeting_reminder_interval", 3], ["meeting_max", 5], ["communication_reminder_interval", 3], ["communication_max", 2], ["friendship_score", 1], ["created_at", "2022-05-10 14:05:55.058298"], ["updated_at", "2022-05-10 14:05:55.058298"]]
+  [1m[36mTRANSACTION (40.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFriendship Create (0.3ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "meeting_reminder_interval", "meeting_max", "communication_reminder_interval", "communication_max", "friendship_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["friend_id", 6], ["meeting_reminder_interval", 2], ["meeting_max", 4], ["communication_reminder_interval", 2], ["communication_max", 1], ["friendship_score", 10], ["created_at", "2022-05-10 14:05:55.103924"], ["updated_at", "2022-05-10 14:05:55.103924"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFriendship Create (0.3ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "meeting_reminder_interval", "meeting_max", "communication_reminder_interval", "communication_max", "friendship_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["friend_id", 1], ["meeting_reminder_interval", 5], ["meeting_max", 10], ["communication_reminder_interval", 8], ["communication_max", 7], ["friendship_score", 10], ["created_at", "2022-05-10 14:05:55.110496"], ["updated_at", "2022-05-10 14:05:55.110496"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFriendship Create (0.3ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "meeting_reminder_interval", "meeting_max", "communication_reminder_interval", "communication_max", "friendship_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 4], ["meeting_reminder_interval", 10], ["meeting_max", 15], ["communication_reminder_interval", 3], ["communication_max", 2], ["friendship_score", 15], ["created_at", "2022-05-10 14:05:55.114802"], ["updated_at", "2022-05-10 14:05:55.114802"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFriendship Create (0.3ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "meeting_reminder_interval", "meeting_max", "communication_reminder_interval", "communication_max", "friendship_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["friend_id", 2], ["meeting_reminder_interval", 15], ["meeting_max", 20], ["communication_reminder_interval", 6], ["communication_max", 2], ["friendship_score", 9], ["created_at", "2022-05-10 14:05:55.118699"], ["updated_at", "2022-05-10 14:05:55.118699"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFriendship Create (0.3ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "meeting_reminder_interval", "meeting_max", "communication_reminder_interval", "communication_max", "friendship_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 2], ["meeting_reminder_interval", 3], ["meeting_max", 5], ["communication_reminder_interval", 3], ["communication_max", 2], ["friendship_score", 8], ["created_at", "2022-05-10 14:05:55.122865"], ["updated_at", "2022-05-10 14:05:55.122865"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFriendship Create (0.2ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "meeting_reminder_interval", "meeting_max", "communication_reminder_interval", "communication_max", "friendship_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["friend_id", 2], ["meeting_reminder_interval", 3], ["meeting_max", 5], ["communication_reminder_interval", 3], ["communication_max", 2], ["friendship_score", 10], ["created_at", "2022-05-10 14:05:55.126693"], ["updated_at", "2022-05-10 14:05:55.126693"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFriendship Create (0.3ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "meeting_reminder_interval", "meeting_max", "communication_reminder_interval", "communication_max", "friendship_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["friend_id", 5], ["meeting_reminder_interval", 3], ["meeting_max", 5], ["communication_reminder_interval", 3], ["communication_max", 2], ["friendship_score", 5], ["created_at", "2022-05-10 14:05:55.130652"], ["updated_at", "2022-05-10 14:05:55.130652"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFriendship Create (0.2ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "meeting_reminder_interval", "meeting_max", "communication_reminder_interval", "communication_max", "friendship_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["friend_id", 1], ["meeting_reminder_interval", 3], ["meeting_max", 5], ["communication_reminder_interval", 3], ["communication_max", 2], ["friendship_score", 10], ["created_at", "2022-05-10 14:05:55.134379"], ["updated_at", "2022-05-10 14:05:55.134379"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFriendship Create (0.3ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "meeting_reminder_interval", "meeting_max", "communication_reminder_interval", "communication_max", "friendship_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 6], ["meeting_reminder_interval", 3], ["meeting_max", 5], ["communication_reminder_interval", 3], ["communication_max", 2], ["friendship_score", 7], ["created_at", "2022-05-10 14:05:55.138119"], ["updated_at", "2022-05-10 14:05:55.138119"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.6ms)[0m  [1m[32mINSERT INTO "groups" ("user_id", "group_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["group_name", "artists"], ["created_at", "2022-05-10 14:05:55.152088"], ["updated_at", "2022-05-10 14:05:55.152088"]]
+  [1m[36mTRANSACTION (40.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.4ms)[0m  [1m[32mINSERT INTO "groups" ("user_id", "group_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["group_name", "nice people"], ["created_at", "2022-05-10 14:05:55.197095"], ["updated_at", "2022-05-10 14:05:55.197095"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("user_id", "group_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["group_name", "actors"], ["created_at", "2022-05-10 14:05:55.203963"], ["updated_at", "2022-05-10 14:05:55.203963"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("user_id", "group_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["group_name", "crazy people"], ["created_at", "2022-05-10 14:05:55.208003"], ["updated_at", "2022-05-10 14:05:55.208003"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("user_id", "group_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["group_name", "actors"], ["created_at", "2022-05-10 14:05:55.212224"], ["updated_at", "2022-05-10 14:05:55.212224"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("user_id", "group_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["group_name", "strong people"], ["created_at", "2022-05-10 14:05:55.216777"], ["updated_at", "2022-05-10 14:05:55.216777"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroupFriend Create (0.6ms)[0m  [1m[32mINSERT INTO "group_friends" ("group_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 1], ["friend_id", 2], ["created_at", "2022-05-10 14:05:55.229526"], ["updated_at", "2022-05-10 14:05:55.229526"]]
+  [1m[36mTRANSACTION (40.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroupFriend Create (0.3ms)[0m  [1m[32mINSERT INTO "group_friends" ("group_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 5], ["friend_id", 1], ["created_at", "2022-05-10 14:05:55.274863"], ["updated_at", "2022-05-10 14:05:55.274863"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroupFriend Create (0.3ms)[0m  [1m[32mINSERT INTO "group_friends" ("group_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 6], ["friend_id", 1], ["created_at", "2022-05-10 14:05:55.281307"], ["updated_at", "2022-05-10 14:05:55.281307"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroupFriend Create (0.3ms)[0m  [1m[32mINSERT INTO "group_friends" ("group_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 2], ["friend_id", 6], ["created_at", "2022-05-10 14:05:55.285359"], ["updated_at", "2022-05-10 14:05:55.285359"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroupFriend Create (0.2ms)[0m  [1m[32mINSERT INTO "group_friends" ("group_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 4], ["friend_id", 2], ["created_at", "2022-05-10 14:05:55.288976"], ["updated_at", "2022-05-10 14:05:55.288976"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroupFriend Create (0.3ms)[0m  [1m[32mINSERT INTO "group_friends" ("group_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 1], ["friend_id", 4], ["created_at", "2022-05-10 14:05:55.292592"], ["updated_at", "2022-05-10 14:05:55.292592"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mInteraction Create (0.8ms)[0m  [1m[32mINSERT INTO "interactions" ("created_at", "updated_at", "user_id", "friend_id", "in_person?", "date", "score", "location_or_method", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["created_at", "2022-05-10 14:05:55.310523"], ["updated_at", "2022-05-10 14:05:55.310523"], ["user_id", 1], ["friend_id", 4], ["in_person?", false], ["date", "2022-04-21 09:52:00.792782"], ["score", 1.0], ["location_or_method", "phone"], ["description", " pleasant business discussion"]]
+  [1m[36mTRANSACTION (40.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mInteraction Create (0.3ms)[0m  [1m[32mINSERT INTO "interactions" ("created_at", "updated_at", "user_id", "friend_id", "in_person?", "date", "score", "location_or_method", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["created_at", "2022-05-10 14:05:55.357844"], ["updated_at", "2022-05-10 14:05:55.357844"], ["user_id", 3], ["friend_id", 1], ["in_person?", true], ["date", "2022-04-29 09:43:36.963970"], ["score", 0.5], ["location_or_method", "brooklyn"], ["description", "went to the gym and got buff!"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mInteraction Create (0.3ms)[0m  [1m[32mINSERT INTO "interactions" ("created_at", "updated_at", "user_id", "friend_id", "in_person?", "date", "score", "location_or_method", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["created_at", "2022-05-10 14:05:55.364803"], ["updated_at", "2022-05-10 14:05:55.364803"], ["user_id", 2], ["friend_id", 2], ["in_person?", true], ["date", "2022-05-06 20:54:35.926225"], ["score", 0.3], ["location_or_method", "wyoming"], ["description", "studio session, kanye lost his shit"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mInteraction Create (0.3ms)[0m  [1m[32mINSERT INTO "interactions" ("created_at", "updated_at", "user_id", "friend_id", "in_person?", "date", "score", "location_or_method", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["created_at", "2022-05-10 14:05:55.369413"], ["updated_at", "2022-05-10 14:05:55.369413"], ["user_id", 3], ["friend_id", 2], ["in_person?", true], ["date", "2022-04-29 15:44:11.397376"], ["score", 1.0], ["location_or_method", "chicago"], ["description", "recorded a music video, drinks after"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mInteraction Create (0.3ms)[0m  [1m[32mINSERT INTO "interactions" ("created_at", "updated_at", "user_id", "friend_id", "in_person?", "date", "score", "location_or_method", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["created_at", "2022-05-10 14:05:55.373933"], ["updated_at", "2022-05-10 14:05:55.373933"], ["user_id", 1], ["friend_id", 2], ["in_person?", false], ["date", "2022-05-05 03:39:52.302007"], ["score", 1.0], ["location_or_method", "zoom"], ["description", "complained about kim and skete, super entertaining"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mInteraction Create (0.4ms)[0m  [1m[32mINSERT INTO "interactions" ("created_at", "updated_at", "user_id", "friend_id", "in_person?", "date", "score", "location_or_method", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["created_at", "2022-05-10 14:05:55.378469"], ["updated_at", "2022-05-10 14:05:55.378469"], ["user_id", 2], ["friend_id", 1], ["in_person?", true], ["date", "2022-05-03 09:49:39.466564"], ["score", 0.9], ["location_or_method", "gym"], ["description", "good work out, the rock is obsessed with the gym"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mInteraction Create (0.3ms)[0m  [1m[32mINSERT INTO "interactions" ("created_at", "updated_at", "user_id", "friend_id", "in_person?", "date", "score", "location_or_method", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["created_at", "2022-05-10 14:05:55.383166"], ["updated_at", "2022-05-10 14:05:55.383166"], ["user_id", 3], ["friend_id", 5], ["in_person?", false], ["date", "2022-04-21 07:33:35.828836"], ["score", 0.6], ["location_or_method", "phone"], ["description", "kinda tired of the music"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mInteraction Create (0.3ms)[0m  [1m[32mINSERT INTO "interactions" ("created_at", "updated_at", "user_id", "friend_id", "in_person?", "date", "score", "location_or_method", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["created_at", "2022-05-10 14:05:55.387730"], ["updated_at", "2022-05-10 14:05:55.387730"], ["user_id", 1], ["friend_id", 3], ["in_person?", true], ["date", "2022-05-01 19:39:53.482678"], ["score", 0.1], ["location_or_method", "toronto"], ["description", "drake stabbed me in the back"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mInteraction Create (0.3ms)[0m  [1m[32mINSERT INTO "interactions" ("created_at", "updated_at", "user_id", "friend_id", "in_person?", "date", "score", "location_or_method", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["created_at", "2022-05-10 14:05:55.392508"], ["updated_at", "2022-05-10 14:05:55.392508"], ["user_id", 2], ["friend_id", 6], ["in_person?", false], ["date", "2022-04-29 04:03:10.802323"], ["score", 0.8], ["location_or_method", "phone"], ["description", "revamping oceans movies, cool."]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/signup" for 127.0.0.1 at 2022-05-10 10:06:13 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"test_user", "password"=>"[FILTERED]", "user"=>{}}
+[31mUnpermitted parameters: :username, :user[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 422 Unprocessable Entity in 320ms (Views: 2.7ms | ActiveRecord: 3.2ms | Allocations: 13008)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-05-10 10:07:14 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"test_user", "password"=>"[FILTERED]", "user"=>{}}
+[31mUnpermitted parameters: :username, :user[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 422 Unprocessable Entity in 262ms (Views: 0.7ms | ActiveRecord: 2.7ms | Allocations: 7112)
+
+
