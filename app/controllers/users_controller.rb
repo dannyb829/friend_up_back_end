@@ -9,6 +9,10 @@ class UsersController < ApplicationController
 
   # GET /me
   def show
+    if params[:id]
+      user = User.find(params[:id])
+      render json: user
+    else 
     render json: @current_user
   end
 
