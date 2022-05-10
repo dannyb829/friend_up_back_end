@@ -8,15 +8,18 @@ class ApplicationController < ActionController::API
   private
 
   def authorize
-    render json: { error: "Not authorized" }, status: 401 unless User.find_by(id: session[:user_id])
+    @current_user = user.find_by(id: session[:user_id])
+
+    unless @current_user
+      render json: { error: 'Not authorized' }, status: :unauthorized
+    end
   end
 
   def record_not_found
-    render json: {error: "#{controller_name.classify} not found"}, status: 404
+    render json: { error: "#{controller_name.classify} not found" }, status: 404
   end
 
   def record_invalid(invalid)
-    render json: {error: invalid}, status: 422
+    render json: { error: invalid }, status: 422
   end
-
 end
