@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :group_friends
   resources :groups, only: [:index, :create]
   resources :friendships
-  resources :friends
+  resources :friends, only: [:show]
   resources :interactions
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

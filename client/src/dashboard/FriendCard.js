@@ -3,6 +3,7 @@ import Avatar from "../structure/Avatar";
 import LastContactInfo from "./LastContactInfo";
 
 function FriendCard({ friendship }) {
+
   const {
     friend: { first_name, image_url },
     status,

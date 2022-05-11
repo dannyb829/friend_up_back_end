@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import FriendCard from "./FriendCard";
 
-function FriendList({ friendships = [] }) {
-  const friends_to_display = friendships.map((friendship) => {
-    console.log(friendship);
-    return <FriendCard key={friendship.id} friendship={friendship} />;
-  });
-  console.log(friends_to_display);
+function FriendList(props) {
 
-  return <div>{friends_to_display}</div>;
+  return (
+    <div>
+      <FriendCard />
+    </div>
+  );
 }
 
 export default FriendList;

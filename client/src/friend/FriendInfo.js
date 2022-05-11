@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 
-function FriendInfo(props) {
+function FriendInfo({friend}) {
+
+  const { first_name, last_name, email, phone_number, description } = friend
+
   return (
     <div>
-      <span>Winnie the Pooh</span>
-      <span>the Best Bear in All the World</span>
+      <span>{first_name} {last_name}</span>
+      <span>{description}</span>
       <hr />
-      <span>sillyolbear@100acrewoods.net</span>
-      <span>1+ 123-456-7890</span>
+      <span>{email}</span>
+      <span>{phone_number}</span>
     </div>
   );
 }

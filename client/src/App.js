@@ -40,7 +40,7 @@ function App() {
             path="/register"
             element={<RegistrationPage user={user} setUser={setUser} />}
           />
-          <Route path="/friend" element={<FriendPage />} />
+          <Route path="/friend/:id" element={<FriendPage />} />
         </Routes>
       </div>
     </>

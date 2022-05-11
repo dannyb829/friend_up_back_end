@@ -4153,3 +4153,4 @@ Completed 200 OK in 136ms (Views: 84.3ms | ActiveRecord: 49.2ms | Allocations: 2
   [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
   [1m[36mInteraction Load (0.3ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 21], ["in_person?", false], ["LIMIT", 1]]
   [1m[36mInteraction Load (0.5ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 21], ["in_person?", false], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.9ms)[0m  [1m[34mSELECT "friends".* FROM "friends" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
