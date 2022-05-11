@@ -4,25 +4,18 @@ import FriendProfile from "../friend/FriendProfile";
 import InteractionHistory from "../friend/InteractionHistory";
 import { useParams } from "react-router-dom";
 
-function FriendPage({userInteractions, friendships =[]}) {
+function FriendPage({ userInteractions, friendships = [] }) {
+  const { id } = useParams();
 
-  const {id} = useParams()
+  // const [friend ,setFriend] = useState({})
 
-  
-  
-  // const [friend ,setFriend] = useState({}) 
-  
-  const friendship = friendships.length > 0 ? friendships.find(f => f.friend.id === parseInt(id)) : null;
-  
-
-    console.log('friend page BLARGG',friendship)
+  const friendship =
+    friendships.length > 0
+      ? friendships.find((f) => f.friend.id === parseInt(id))
+      : null;
 
   if (!friendship) {
-    return (
-      <div>
-        Loading...
-      </div>
-    )
+    return <div>Loading...</div>;
   }
 
   return (
@@ -30,7 +23,7 @@ function FriendPage({userInteractions, friendships =[]}) {
       <Alert />
       <Alert />
       <FriendProfile friendship={friendship} />
-      <InteractionHistory userInteractions={userInteractions} friendId={8}/>
+      <InteractionHistory userInteractions={userInteractions} friendId={8} />
     </div>
   );
 }

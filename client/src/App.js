@@ -21,7 +21,6 @@ function App() {
     fetch("/auth").then((r) =>
       r.ok
         ? r.json().then((data) => {
-            console.log(data);
             setUser(data);
             getUserInteractions();
           })
