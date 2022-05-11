@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 function UpcomingInfo(props) {
   return (
-    <div>
+    <div className="content-container page-container">
       <h3>Upcoming</h3>
       <a href="#">view schedule</a>
       <ul>

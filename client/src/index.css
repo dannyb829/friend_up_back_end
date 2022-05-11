@@ -1,15 +1,36 @@
-html {
-  background-image: linear-gradient(#a7d7eb, #ededed);
-  height: 100vh;
+/* FONTS ------------------------------------------------------------ */
+
+/* COLOR VARIABLES -------------------------------------------------- */
+:root {
+  --main-bg-gradient: #a7d7eb, #ededed;
+  --container-border: white;
+  --container-bg: rgba(255, 255, 255, 0.65);
+  --logo-gradient: #3fbaff, #187cb5;
+  --header-font-color: white;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* GENERAL --------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 body {
-  margin: 0;
+  margin: 0px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-image: linear-gradient(var(--main-bg-gradient));
+  background-attachment: fixed;
 }
 
 code {
@@ -18,29 +39,26 @@ code {
 }
 
 .header {
-  /* border: 2px solid black; */
-  background-image: linear-gradient(#3fbaff, #187cb5);
+  background-image: linear-gradient(var(--logo-gradient));
   position: fixed;
   top: 0vh;
   left: 0vw;
   width: 100vw;
   padding: 0.4em;
-  /* display: flex; */
 }
 
 .header a {
-  color: white;
+  color: var(--header-font-color);
   text-decoration: none;
   font-weight: bold;
   font-size: 1.3em;
   float: left;
-  /* align-content: flex-start; */
 }
 
 .header button {
   float: right;
   margin-right: 1em;
-  background-color: white;
+  background-color: var(--header-font-color);
   border-radius: 0.5em;
   padding: 0.4em;
   border: none;
@@ -50,5 +68,22 @@ code {
 }
 
 .header-shift {
-  margin-top: 3em;
+  margin-top: 3.5em;
+}
+
+.content-container {
+  background-color: var(--container-bg);
+  padding: 1.5em;
+  margin: 1em;
+  border: 1px solid var(--container-border);
+  border-radius: 33px;
+}
+
+.page-container {
+  box-shadow: 3px 3px 5px 0px var(--shadow-color);
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 0;
 }

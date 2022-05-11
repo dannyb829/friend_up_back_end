@@ -11,7 +11,7 @@ function UserInfo({ user }) {
   } = user;
 
   return (
-    <div>
+    <div className="content-container page-container">
       <h3>
         {first_name} {last_name}
       </h3>

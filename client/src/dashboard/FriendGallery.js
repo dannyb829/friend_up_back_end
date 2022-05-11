@@ -4,7 +4,7 @@ import FriendList from "./FriendList";
 
 function FriendGallery(props) {
   return (
-    <div>
+    <div className="content-container page-container">
       <h3>Friends</h3>
       <button>➕ Add Friend</button>
       <button>✍️ Edit Groups</button>
