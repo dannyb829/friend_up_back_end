@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 function LoginForm({ setUser }) {
   const [login, setLogin] = useState({ email: "", password: "" });
@@ -28,23 +29,26 @@ function LoginForm({ setUser }) {
   }
 
   return (
-    <form onSubmit={handleLogin}>
+    <form onSubmit={handleLogin} className="flex-col login">
       <input
         onChange={handleLoginChange}
         type="text"
         name="email"
         value={login.email}
-        placeholder="EMAIL"
+        placeholder="Email"
       />
       <input
         onChange={handleLoginChange}
         type="password"
         name="password"
         value={login.password}
-        placeholder="PASSWORD"
+        placeholder="Password"
       />
       <a href="#">forgot password?</a>
       <button>log in</button>
+      <Link to="/register">
+        <button>create new account</button>
+      </Link>
     </form>
   );
 }

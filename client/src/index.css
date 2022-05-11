@@ -12,6 +12,7 @@
   --logo-gradient: var(--logo-light), var(--logo-dark);
   --header-font-color: white;
   --shadow-color: rgba(0, 0, 0, 0.5);
+  --link-color: #2591ce;
 }
 
 /* APP GENERAL --------------------------------------------------------- */
@@ -75,6 +76,23 @@ code {
 
 /* PAGE CONTENT GENERAL --------------------------------------------------------- */
 
+.page-centered {
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-col > * {
+  margin: 10px;
+}
+
 .header-shift {
   margin-top: 3.5em;
 }
@@ -111,6 +129,42 @@ hr {
   opacity: 40%;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+/* LOGIN PAGE --------------------------------------------------------- */
+
+.title {
+  font-size: 4em;
+  background: -webkit-linear-gradient(var(--logo-gradient));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login input[type="text"],
+.login input[type="password"],
+.login input {
+  width: 25em;
+  height: 1em;
+  padding: 10px;
+  border: none;
+  background-color: var(--container-bg);
+}
+
+.login a,
+.login span {
+  font-size: 0.8em;
+  color: var(--link-color);
+}
+
+.login label {
+  color: var(--link-color);
+  font-weight: bold;
+}
+
+.login li {
+  font-size: 0.8em;
+  font-weight: normal;
+  color: black;
 }
 
 /* AVATARS --------------------------------------------------------- */
