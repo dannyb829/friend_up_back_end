@@ -1,5 +1,15 @@
 /* FONTS ------------------------------------------------------------ */
 
+/* FONTS ------------------------------------------------------------ */
+:root {
+  --header-height: 3em;
+  --header-padding: 0.4em;
+  --header-listed-height: calc(
+    var(--header-height) - (2 * var(--header-padding))
+  );
+  --modal-padding: 2em;
+}
+
 /* COLOR VARIABLES -------------------------------------------------- */
 :root {
   --bg-blue: #a7d7eb;
@@ -55,7 +65,8 @@ code {
   top: 0vh;
   left: 0vw;
   width: 100vw;
-  padding: 0.4em;
+  height: var(--header-listed-height);
+  padding: var(--header-padding);
 }
 
 .header a {
@@ -98,7 +109,10 @@ code {
 }
 
 .header-shift {
-  margin-top: 3.5em;
+  padding-top: calc(var(--header-height) * 1);
+  /* position: fixed;
+  top: var(--header-height);
+  left: 0; */
 }
 
 .content-container {
@@ -213,9 +227,22 @@ hr {
 }
 
 .modal {
+  position: fixed;
+  top: calc(50vh + (0.5 * var(--header-height)));
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 70%;
-  height: 70%;
+  height: fit-content;
+  max-height: calc(
+    0.7 * (100vh - var(--header-height) - (calc(2 * var(--modal-padding))))
+  );
   background-image: linear-gradient(var(--modal-gradient));
   border-radius: 33px;
-  padding: 2em;
+  padding: var(--modal-padding);
+  overflow-y: scroll;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
 }

@@ -11,7 +11,7 @@ import Modal from "./structure/Modal";
 function App() {
   // const [isLoggedIn, setisLoggedIn] = useState(false);
   const [user, setUser] = useState({});
-  const [isModal, setIsModal] = useState(true);
+  const [isModal, setIsModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
 
   const navigate = useNavigate();
@@ -33,18 +33,45 @@ function App() {
     <>
       <div className={user?.id ? "header-shift" : null}>
         <Routes>
-          <Route path="/" element={<Dashboard user={user} />} />
+          <Route
+            path="/"
+            element={
+              <Dashboard
+                user={user}
+                setIsModal={setIsModal}
+                setModalContent={setModalContent}
+              />
+            }
+          />
           <Route
             path="/login"
-            element={<LoginPage user={user} setUser={setUser} />}
+            element={
+              <LoginPage
+                user={user}
+                setUser={setUser}
+                setIsModal={setIsModal}
+                setModalContent={setModalContent}
+              />
+            }
           />
           <Route
             path="/register"
             element={<RegistrationPage user={user} setUser={setUser} />}
           />
-          <Route path="/friend" element={<FriendPage />} />
+          <Route
+            path="/friend"
+            element={<FriendPage />}
+            setIsModal={setIsModal}
+            setModalContent={setModalContent}
+          />
         </Routes>
-        {isModal && <Modal content={modalContent} setIsModal={setIsModal} />}
+        {isModal && (
+          <Modal
+            content={modalContent}
+            setIsModal={setIsModal}
+            setModalContent={setModalContent}
+          />
+        )}
       </div>
       {user?.id ? <Header setUser={setUser} /> : null}
     </>
