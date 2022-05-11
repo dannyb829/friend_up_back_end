@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from 'react-router'
+import { useNavigate } from "react-router";
 
-function Header({setUser}) {
-
-  const navigate = useNavigate()
+function Header({ setUser }) {
+  const navigate = useNavigate();
 
   function handleLogOut() {
-    fetch('/logout',{method: 'DELETE'})
-    setUser({})
-    navigate('/login')
+    fetch("/logout", { method: "DELETE" });
+    setUser({});
+    navigate("/login");
   }
 
-
   return (
-    <div className='header'>
+    <div className="header">
       <Link to="/">
-        <h3>friendup</h3>
+        <span>friendup</span>
       </Link>
       <button onClick={handleLogOut}>log out</button>
     </div>
