@@ -11,7 +11,7 @@ import Modal from "./structure/Modal";
 function App() {
   // const [isLoggedIn, setisLoggedIn] = useState(false);
   const [user, setUser] = useState({});
-  const [isModal, setIsModal] = useState(false);
+  const [isModal, setIsModal] = useState(true);
   const [modalContent, setModalContent] = useState(null);
 
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ function App() {
           />
           <Route path="/friend" element={<FriendPage />} />
         </Routes>
-        {isModal && <Modal content={modalContent} />}
+        {isModal && <Modal content={modalContent} setIsModal={setIsModal} />}
       </div>
       {user?.id ? <Header setUser={setUser} /> : null}
     </>

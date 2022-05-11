@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-function Modal({ content }) {
+function Modal({ content, setIsModal }) {
   return (
     <div className="modal-container">
       <div className="modal page-centered">
         {content}
-        <button>X</button>
+        <button onClick={() => setIsModal(false)}>X</button>
       </div>
     </div>
   );
