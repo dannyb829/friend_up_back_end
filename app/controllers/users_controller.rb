@@ -12,8 +12,9 @@ class UsersController < ApplicationController
     if params[:id]
       user = User.find(params[:id])
       render json: user
-    else 
-    render json: @current_user
+    else
+      render json: @current_user
+    end
   end
 
   private
