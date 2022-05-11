@@ -6,10 +6,13 @@ import RegistrationPage from "./routes/RegistrationPage";
 import Header from "./structure/Header";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import Modal from "./structure/Modal";
 
 function App() {
   // const [isLoggedIn, setisLoggedIn] = useState(false);
   const [user, setUser] = useState({});
+  const [isModal, setIsModal] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
 
   const navigate = useNavigate();
 
@@ -28,7 +31,6 @@ function App() {
 
   return (
     <>
-      {user?.id ? <Header setUser={setUser} /> : null}
       <div className={user?.id ? "header-shift" : null}>
         <Routes>
           <Route path="/" element={<Dashboard user={user} />} />
@@ -42,7 +44,9 @@ function App() {
           />
           <Route path="/friend" element={<FriendPage />} />
         </Routes>
+        {isModal && <Modal content={modalContent} />}
       </div>
+      {user?.id ? <Header setUser={setUser} /> : null}
     </>
   );
 }
