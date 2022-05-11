@@ -4,7 +4,7 @@ import LastContactInfo from "./LastContactInfo";
 
 function FriendCard(props) {
   return (
-    <div>
+    <div className="card">
       <Avatar />
       <button>edit</button>
       <span>Name</span>

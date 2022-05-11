@@ -2,15 +2,19 @@
 
 /* COLOR VARIABLES -------------------------------------------------- */
 :root {
-  --main-bg-gradient: #a7d7eb, #ededed;
+  --bg-blue: #a7d7eb;
+  --bg-gray: #ededed;
+  --main-bg-gradient: var(--bg-blue), var(--bg-gray);
   --container-border: white;
   --container-bg: rgba(255, 255, 255, 0.65);
-  --logo-gradient: #3fbaff, #187cb5;
+  --logo-light: #3fbaff;
+  --logo-dark: #187cb5;
+  --logo-gradient: var(--logo-light), var(--logo-dark);
   --header-font-color: white;
   --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
-/* GENERAL --------------------------------------------------------- */
+/* APP GENERAL --------------------------------------------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -37,6 +41,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* HEADER --------------------------------------------------------- */
 
 .header {
   background-image: linear-gradient(var(--logo-gradient));
@@ -67,6 +73,8 @@ code {
   opacity: 70%;
 }
 
+/* PAGE CONTENT GENERAL --------------------------------------------------------- */
+
 .header-shift {
   margin-top: 3.5em;
 }
@@ -86,4 +94,25 @@ code {
 h3 {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+/* AVATARS --------------------------------------------------------- */
+
+.avatar {
+  margin: 1em;
+  width: 11em;
+  height: 11em;
+}
+
+.card > .avatar {
+  width: 8em;
+  height: 8em;
+}
+
+.avatar > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  object-fit: cover;
+  border: 2px solid var(--logo-dark);
 }
