@@ -187,3 +187,12 @@ hr {
   object-fit: cover;
   border: 2px solid var(--logo-dark);
 }
+
+/* CARDS --------------------------------------------------------- */
+
+.poor-container {
+  /* background-color: red; */
+}
+.poor-font {
+  color: red;
+}

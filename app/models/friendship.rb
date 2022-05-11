@@ -2,6 +2,22 @@ class Friendship < ApplicationRecord
   belongs_to :user
   belongs_to :friend
 
+  def days_since_communication
+    if friend.most_recent_communication_date
+      (Date.today - friend.most_recent_communication_date).to_i
+    else
+      '-'
+    end
+  end
+
+  def days_since_meeting
+    if friend.most_recent_meeting_date
+      (Date.today - friend.most_recent_meeting_date).to_i
+    else
+      '-'
+    end
+  end
+
   def communication_status
     if friend.most_recent_communication_date
       days_since = (Date.today - friend.most_recent_communication_date).to_i

@@ -9,7 +9,7 @@ function Dashboard({ user }) {
     <div>
       <UserInfo user={user} />
       <UpcomingInfo />
-      <FriendGallery />
+      <FriendGallery friendships={user.friendships} />
     </div>
   );
 }

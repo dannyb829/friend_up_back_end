@@ -10,6 +10,10 @@ function UserInfo({ user }) {
     friends_needing_attention = 0,
   } = user;
 
+  const friendupScore = parseInt(
+    (friends_needing_attention / friendships.length) * 100
+  );
+
   return (
     <div className="content-container page-container">
       <h3>
@@ -19,7 +23,7 @@ function UserInfo({ user }) {
       <hr />
       <Avatar image_url={image_url} />
       <span>friendup score:</span>
-      <span>100%</span>
+      <span>{friendupScore}%</span>
       <span>{friendships.length} friendships</span>
       <span>{friends_needing_attention} need attention</span>
     </div>
