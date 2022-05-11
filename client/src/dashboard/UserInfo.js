@@ -3,11 +3,11 @@ import Avatar from "../structure/Avatar";
 
 function UserInfo({ user }) {
   const {
-    first_name,
-    last_name,
-    image_url,
-    friendships,
-    friends_needing_attention,
+    first_name = "",
+    last_name = "",
+    image_url = "",
+    friendships = [],
+    friends_needing_attention = 0,
   } = user;
 
   return (
