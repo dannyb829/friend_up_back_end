@@ -9,6 +9,7 @@ function FriendGallery(props) {
       <button>➕ Add Friend</button>
       <button>✍️ Edit Groups</button>
       <FriendFilterForm />
+      <hr />
       <FriendList />
     </div>
   );

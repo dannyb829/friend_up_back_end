@@ -5,6 +5,7 @@ function UpcomingInfo(props) {
     <div className="content-container page-container">
       <h3>Upcoming</h3>
       <a href="#">view schedule</a>
+      <hr />
       <ul>
         <li>date - event</li>
         <li>date - event</li>

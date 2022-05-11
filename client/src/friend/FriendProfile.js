@@ -5,7 +5,7 @@ import FriendInfo from "./FriendInfo";
 
 function FriendProfile(props) {
   return (
-    <div>
+    <div className="content-container page-container">
       <Avatar />
       <button>edit</button>
       <FriendInfo />

@@ -96,6 +96,23 @@ h3 {
   margin-bottom: 0;
 }
 
+hr {
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    black,
+    black,
+    black,
+    black,
+    rgba(0, 0, 0, 0)
+  );
+  border: none;
+  opacity: 40%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 /* AVATARS --------------------------------------------------------- */
 
 .avatar {

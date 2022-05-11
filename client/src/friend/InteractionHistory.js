@@ -4,10 +4,11 @@ import InteractionList from "./InteractionList";
 
 function InteractionHistory(props) {
   return (
-    <div>
+    <div className="content-container page-container">
       <h3>History</h3>
       <button>➕ Add Interaction</button>
       <InteractionFilterForm />
+      <hr />
       <InteractionList />
     </div>
   );

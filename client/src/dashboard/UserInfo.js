@@ -16,6 +16,7 @@ function UserInfo({ user }) {
         {first_name} {last_name}
       </h3>
       <a href="#">edit profile</a>
+      <hr />
       <Avatar image_url={image_url} />
       <span>friendup score:</span>
       <span>100%</span>
