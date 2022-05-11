@@ -132,7 +132,6 @@ function FriendFilterForm(props) {
           type="radio"
           value="either"
           checked={typeFilter === "either"}
-          defaultChecked
           onChange={handleFormChange}
         />
         either

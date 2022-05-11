@@ -29,18 +29,20 @@ function App() {
   return (
     <>
       {user?.id ? <Header setUser={setUser} /> : null}
-      <Routes>
-        <Route path="/" element={<Dashboard user={user} />} />
-        <Route
-          path="/login"
-          element={<LoginPage user={user} setUser={setUser} />}
-        />
-        <Route
-          path="/register"
-          element={<RegistrationPage user={user} setUser={setUser} />}
-        />
-        <Route path="/friend" element={<FriendPage />} />
-      </Routes>
+      <div className={user?.id ? "header-shift" : null}>
+        <Routes>
+          <Route path="/" element={<Dashboard user={user} />} />
+          <Route
+            path="/login"
+            element={<LoginPage user={user} setUser={setUser} />}
+          />
+          <Route
+            path="/register"
+            element={<RegistrationPage user={user} setUser={setUser} />}
+          />
+          <Route path="/friend" element={<FriendPage />} />
+        </Routes>
+      </div>
     </>
   );
 }
