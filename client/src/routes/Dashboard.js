@@ -4,12 +4,16 @@ import UserInfo from "../dashboard/UserInfo";
 import UpcomingInfo from "../dashboard/UpcomingInfo";
 import FriendGallery from "../dashboard/FriendGallery";
 
-function Dashboard({ user }) {
+function Dashboard({ user, setIsModal, setModalContent }) {
   return (
     <div>
       <UserInfo user={user} />
       <UpcomingInfo />
-      <FriendGallery friendships={user.friendships} />
+      <FriendGallery
+        friendships={user.friendships}
+        setIsModal={setIsModal}
+        setModalContent={setModalContent}
+      />
     </div>
   );
 }

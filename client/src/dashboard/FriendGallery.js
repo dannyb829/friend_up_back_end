@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import FriendFilterForm from "../forms/FriendFilterForm";
 import FriendList from "./FriendList";
+import AddFriendForm from "../forms/AddFriendForm";
 
-function FriendGallery({ friendships }) {
+function FriendGallery({ friendships, setIsModal, setModalContent }) {
+  const handleAddFriendClick = () => {
+    setModalContent(<AddFriendForm />);
+    setIsModal(true);
+  };
+
   return (
     <div className="content-container page-container">
       <h3>Friends</h3>
-      <button>➕ Add Friend</button>
+      <button onClick={handleAddFriendClick}>➕ Add Friend</button>
       <button>✍️ Edit Groups</button>
       <FriendFilterForm />
       <hr />

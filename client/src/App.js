@@ -6,11 +6,14 @@ import RegistrationPage from "./routes/RegistrationPage";
 import Header from "./structure/Header";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import Modal from "./structure/Modal";
 
 function App() {
   // const [isLoggedIn, setisLoggedIn] = useState(false);
   const [user, setUser] = useState({});
-  const [userInteractions ,setUserInteractions] = useState([]) 
+  const [userInteractions, setUserInteractions] = useState([]);
+  const [isModal, setIsModal] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
 
   const navigate = useNavigate();
 
@@ -20,7 +23,7 @@ function App() {
         ? r.json().then((data) => {
             console.log(data);
             setUser(data);
-            getUserInteractions()
+            getUserInteractions();
           })
         : navigate("/login")
     );
@@ -29,30 +32,61 @@ function App() {
   // TODO: have friend page index into specific friend
 
   function getUserInteractions() {
-    fetch('/interactions')
-    .then(r => r.json())
-    .then(interactions => setUserInteractions(interactions))
+    fetch("/interactions")
+      .then((r) => r.json())
+      .then((interactions) => setUserInteractions(interactions));
   }
-
-
 
   return (
     <>
-      {user?.id ? <Header setUser={setUser} /> : null}
       <div className={user?.id ? "header-shift" : null}>
         <Routes>
-          <Route path="/" element={<Dashboard user={user} />} />
+          <Route
+            path="/"
+            element={
+              <Dashboard
+                user={user}
+                setIsModal={setIsModal}
+                setModalContent={setModalContent}
+              />
+            }
+          />
           <Route
             path="/login"
-            element={<LoginPage user={user} setUser={setUser} />}
+            element={
+              <LoginPage
+                user={user}
+                setUser={setUser}
+                setIsModal={setIsModal}
+                setModalContent={setModalContent}
+              />
+            }
           />
           <Route
             path="/register"
             element={<RegistrationPage user={user} setUser={setUser} />}
           />
-          <Route path="/friend/:id" element={<FriendPage userInteractions={userInteractions} friendships={user.friendships}/>} />
+          <Route
+            path="/friend/:id"
+            element={
+              <FriendPage
+                userInteractions={userInteractions}
+                friendships={user.friendships}
+                setIsModal={setIsModal}
+                setModalContent={setModalContent}
+              />
+            }
+          />
         </Routes>
+        {isModal && (
+          <Modal
+            content={modalContent}
+            setIsModal={setIsModal}
+            setModalContent={setModalContent}
+          />
+        )}
       </div>
+      {user?.id ? <Header setUser={setUser} /> : null}
     </>
   );
 }
