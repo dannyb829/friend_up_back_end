@@ -10,6 +10,7 @@ import { useNavigate } from "react-router";
 function App() {
   // const [isLoggedIn, setisLoggedIn] = useState(false);
   const [user, setUser] = useState({});
+  const [userInteractions ,setUserInteractions] = useState([]) 
 
   const navigate = useNavigate();
 
@@ -19,12 +20,21 @@ function App() {
         ? r.json().then((data) => {
             console.log(data);
             setUser(data);
+            getUserInteractions()
           })
         : navigate("/login")
     );
   }, []);
   // TODO: have dashboard reroute to LoginPage if not logged in
   // TODO: have friend page index into specific friend
+
+  function getUserInteractions() {
+    fetch('/interactions')
+    .then(r => r.json())
+    .then(interactions => setUserInteractions(interactions))
+  }
+
+
 
   return (
     <>
@@ -40,7 +50,7 @@ function App() {
             path="/register"
             element={<RegistrationPage user={user} setUser={setUser} />}
           />
-          <Route path="/friend" element={<FriendPage />} />
+          <Route path="/friend/:id" element={<FriendPage userInteractions={userInteractions} friendships={user.friendships}/>} />
         </Routes>
       </div>
     </>

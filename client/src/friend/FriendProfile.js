@@ -3,13 +3,17 @@ import Avatar from "../structure/Avatar";
 import LastContactControl from "./LastContactControl";
 import FriendInfo from "./FriendInfo";
 
-function FriendProfile(props) {
+function FriendProfile({friendship={}}) {
+  console.log(friendship)
+  const { friend } = friendship
+  const {image_url} = friend
+
   return (
     <div className="content-container page-container">
-      <Avatar />
+      <Avatar image_url={image_url}/>
       <button>edit</button>
-      <FriendInfo />
-      <LastContactControl />
+      <FriendInfo friend={friend}/>
+      <LastContactControl friendship={friendship} />
     </div>
   );
 }

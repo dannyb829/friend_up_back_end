@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 
-function InteractionListItem(props) {
+function InteractionListItem({interaction}) {
+  const { date, location_or_method, description } = interaction
   return (
     <div>
       <span>🗣/📍</span>
-      <span>[date]</span>
+      <span>{date}</span>
       <span>–</span>
-      <span>place/method</span>
-      <span>description</span>
+      <span>{location_or_method}</span>
+      <span> {description}</span>
     </div>
   );
 }
