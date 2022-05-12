@@ -18,9 +18,10 @@ function FriendGallery({
   friendships,
   setIsModal,
   setModalContent,
-  groups,
+  user,
   setUser,
 }) {
+  console.log("gallery user:", user);
   const [filterData, setFilterData] = useState(defaultFilter);
   const {
     searchInput,
@@ -111,7 +112,7 @@ function FriendGallery({
   const handleAddFriendClick = () => {
     setModalContent(
       <AddFriendForm
-        usergroups={groups}
+        usergroups={user.groups}
         setUser={setUser}
         setIsModal={setIsModal}
         setModalContent={setModalContent}
@@ -123,7 +124,7 @@ function FriendGallery({
   const handleEditGroupsClick = () => {
     setModalContent(
       <EditGroupsForm
-        groups={groups}
+        user={user}
         setUser={setUser}
         setModalContent={setModalContent}
         setIsModal={setIsModal}
@@ -144,7 +145,7 @@ function FriendGallery({
         setIsModal={setIsModal}
         setModalContent={setModalContent}
         setUser={setUser}
-        groups={groups}
+        groups={user.groups}
       />
     </div>
   );

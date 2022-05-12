@@ -18,6 +18,8 @@ function App() {
 
   const navigate = useNavigate();
 
+  console.log("app user:", user);
+
   useEffect(() => {
     fetch("/auth").then((r) =>
       r.ok
@@ -56,7 +58,6 @@ function App() {
                 setUser={setUser}
                 setIsModal={setIsModal}
                 setModalContent={setModalContent}
-                groups={user.groups}
               />
             }
           />

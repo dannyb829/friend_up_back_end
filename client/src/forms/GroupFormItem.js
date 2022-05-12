@@ -1,13 +1,46 @@
 import React, { useState, useEffect } from "react";
+import UserInfo from "../dashboard/UserInfo";
+import EditGroupsForm from "./EditGroupsForm";
 
-function GroupFormItem({ group, setUser }) {
+function GroupFormItem({ group, setUser, user, setModalContent, setIsModal }) {
   const [isEditing, setIsEditing] = useState(false);
   const [input, setInput] = useState(group.group_name);
 
+  // console.log(user);
+
   const handleSubmit = (e) => {
+    console.log(group);
     e.preventDefault();
     console.log("update group name in db here");
-    setIsEditing(false);
+    fetch(`/groups/${group.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        group_name: input,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setUser(data);
+        setIsEditing(false);
+        resetModal(data);
+      })
+      .catch((error) => console.log(error.message));
+  };
+
+  const resetModal = (updatedUser) => {
+    setModalContent(
+      <EditGroupsForm
+        user={updatedUser}
+        setUser={setUser}
+        setModalContent={setModalContent}
+        setIsModal={setIsModal}
+      />
+    );
   };
 
   const onInputChange = (e) => {
