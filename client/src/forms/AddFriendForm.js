@@ -19,7 +19,7 @@ const defaultForm = {
   groups: [],
 };
 
-function AddFriendForm({usergroups}) {
+function AddFriendForm({usergroups, setUser, setIsModal, setModalContent }) {
   // State and Variable Declaration
 
   const [formData, setFormData] = useState(defaultForm);
@@ -41,12 +41,12 @@ function AddFriendForm({usergroups}) {
     groups,
   } = formData;
 
-  const groupsList = [
-    { id: 1, group_name: "Close Friends" },
-    { id: 2, group_name: "Family" },
-    { id: 3, group_name: "Work" },
-    { id: 4, group_name: "School" },
-  ];
+  // const groupsList = [
+  //   { id: 1, group_name: "Close Friends" },
+  //   { id: 2, group_name: "Family" },
+  //   { id: 3, group_name: "Work" },
+  //   { id: 4, group_name: "School" },
+  // ];
 
   const handleGroupChange = ({ target: { name, checked, id } }) => {
     const newValue = checked
@@ -117,7 +117,10 @@ function AddFriendForm({usergroups}) {
           }),
         })
           .then((res) => res.json())
-          .then((data) => console.log(data))
+          .then((data) => {
+            setIsModal(false)
+            setModalContent(null)
+            setUser(data)})
           .catch((error) => console.log(error.message));
       })
       .catch((error) => console.log(error.message));

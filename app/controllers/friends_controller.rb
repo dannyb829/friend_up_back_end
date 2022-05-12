@@ -1,10 +1,15 @@
 class FriendsController < ApplicationController
-    before_action :find_friend, only: :show
+    before_action :find_friend, only: [:show, :update]
 
     def create 
         friend = Friend.create!(friend_params)
         params[:groups].each { |group| GroupFriend.create!(group: Group.find_by!(group_name:group), friend: friend)}
         render json: friend, status: :created
+    end
+
+    def update 
+        @friend.update!(friend_params)
+        render json: @current_user
     end
 
     def show 

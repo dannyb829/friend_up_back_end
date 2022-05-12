@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router";
 import OptionsButton from "../structure/OptionsButton";
 import EditFriendForm from "../forms/EditFriendForm";
 
-function FriendCard({ friendship, setIsModal, setModalContent }) {
+function FriendCard({ friendship, setIsModal, setModalContent, setUser, userGroups, setUserGroups }) {
   const [isPopupUp, setIsPopupUp] = useState(false);
 
   const navigate = useNavigate();
@@ -16,7 +16,13 @@ function FriendCard({ friendship, setIsModal, setModalContent }) {
   } = friendship;
 
   const handleEditFriendClick = () => {
-    setModalContent(<EditFriendForm />);
+    setModalContent(<EditFriendForm friendship={friendship} 
+                                    setIsModal={setIsModal} 
+                                    setModalContent={setModalContent}
+                                    setUser={setUser}
+                                    userGroups={userGroups}
+                                    setUserGroups={setUserGroups}
+                                    />);
     setIsModal(true);
     setIsPopupUp(false);
   };

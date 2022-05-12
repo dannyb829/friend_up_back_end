@@ -18,12 +18,20 @@ function FriendPage({ userInteractions, friendships = [] }) {
     return <div>Loading...</div>;
   }
 
+  function alertMessage(status, mode) {
+    if (status === 'poor' || status === 'warning'){
+      return <Alert status={status} mode={mode} name={friendship.friend.first_name}/>
+    }
+  }
+ 
+
+
   return (
     <div>
-      <Alert />
-      <Alert />
+      {alertMessage(friendship.communication_status, 'communicate')}
+      {alertMessage(friendship.meeting_status, 'meet')}
       <FriendProfile friendship={friendship} />
-      <InteractionHistory userInteractions={userInteractions} friendId={8} />
+      <InteractionHistory userInteractions={userInteractions} friendId={friendship.friend.id} />
     </div>
   );
 }

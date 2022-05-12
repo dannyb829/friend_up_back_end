@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FriendCard from "./FriendCard";
 
-function FriendList({ friendships = [], setIsModal, setModalContent }) {
+function FriendList({ friendships = [], setIsModal, setModalContent, setUser, userGroups, setUserGroups }) {
   const friends_to_display = friendships.map((friendship) => {
     return (
       <FriendCard
@@ -9,6 +9,9 @@ function FriendList({ friendships = [], setIsModal, setModalContent }) {
         friendship={friendship}
         setIsModal={setIsModal}
         setModalContent={setModalContent}
+        setUser={setUser}
+        userGroups={userGroups}
+        setUserGroups={setUserGroups}
       />
     );
   });

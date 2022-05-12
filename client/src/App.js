@@ -53,9 +53,11 @@ function App() {
             element={
               <Dashboard
                 user={user}
+                setUser={setUser}
                 setIsModal={setIsModal}
                 setModalContent={setModalContent}
                 groups={groups}
+                setGroups={setGroups}
               />
             }
           />
