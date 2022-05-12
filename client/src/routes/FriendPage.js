@@ -10,6 +10,7 @@ function FriendPage({
   setIsModal,
   setModalContent,
   setUser,
+  groups,
 }) {
   const { id } = useParams();
 
@@ -44,6 +45,8 @@ function FriendPage({
         friendship={friendship}
         setIsModal={setIsModal}
         setModalContent={setModalContent}
+        setUser={setUser}
+        groups={groups}
       />
       <InteractionHistory
         userInteractions={userInteractions}

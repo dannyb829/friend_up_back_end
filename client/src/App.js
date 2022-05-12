@@ -84,6 +84,7 @@ function App() {
                 setIsModal={setIsModal}
                 setModalContent={setModalContent}
                 setUser={setUser}
+                groups={user.groups}
               />
             }
           />

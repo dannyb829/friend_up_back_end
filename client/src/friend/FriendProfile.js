@@ -5,12 +5,26 @@ import FriendInfo from "./FriendInfo";
 import OptionsButton from "../structure/OptionsButton";
 import EditFriendForm from "../forms/EditFriendForm";
 
-function FriendProfile({ friendship = {}, setIsModal, setModalContent }) {
+function FriendProfile({
+  friendship = {},
+  setIsModal,
+  setModalContent,
+  setUser,
+  groups,
+}) {
   const { friend } = friendship;
   const { image_url } = friend;
   const [isPopupUp, setIsPopupUp] = useState(false);
   const handleEditFriendClick = () => {
-    setModalContent(<EditFriendForm />);
+    setModalContent(
+      <EditFriendForm
+        friendship={friendship}
+        setIsModal={setIsModal}
+        setModalContent={setModalContent}
+        setUser={setUser}
+        userGroups={groups}
+      />
+    );
     setIsModal(true);
     setIsPopupUp(false);
   };
