@@ -3,8 +3,11 @@ import Avatar from "../structure/Avatar";
 import LastContactInfo from "./LastContactInfo";
 import { Link, useNavigate } from "react-router";
 import OptionsButton from "../structure/OptionsButton";
+import EditFriendForm from "../forms/EditFriendForm";
 
-function FriendCard({ friendship }) {
+function FriendCard({ friendship, setIsModal, setModalContent }) {
+  const [isPopupUp, setIsPopupUp] = useState(false);
+
   const navigate = useNavigate();
 
   const {
@@ -12,10 +15,16 @@ function FriendCard({ friendship }) {
     status,
   } = friendship;
 
+  const handleEditFriendClick = () => {
+    setModalContent(<EditFriendForm />);
+    setIsModal(true);
+    setIsPopupUp(false);
+  };
+
   const popupOptions = (
     <>
       <button onClick={() => navigate(`/friend/${id}`)}>view</button>
-      <button>edit</button>
+      <button onClick={handleEditFriendClick}>edit</button>
     </>
   );
 
@@ -24,7 +33,11 @@ function FriendCard({ friendship }) {
       <div onClick={() => navigate(`/friend/${id}`)}>
         <Avatar image_url={image_url} />
       </div>
-      <OptionsButton popupOptions={popupOptions} />
+      <OptionsButton
+        popupOptions={popupOptions}
+        isPopupUp={isPopupUp}
+        setIsPopupUp={setIsPopupUp}
+      />
       <span>{first_name}</span>
       <LastContactInfo friendship={friendship} />
     </div>

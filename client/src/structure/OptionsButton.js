@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { HiDotsVertical } from "react-icons/hi";
 import Popup from "./Popup";
 
-function OptionsButton({ popupOptions }) {
-  const [isPopupUp, setIsPopupUp] = useState(false);
+function OptionsButton({ popupOptions, isPopupUp, setIsPopupUp }) {
   const [isButtonActive, setIsButtonActive] = useState(true);
 
   // slight delay to reactivate button so popup does not immediately reappear

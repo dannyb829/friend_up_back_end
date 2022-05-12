@@ -8,14 +8,15 @@ function Modal({ content, setIsModal, setModalContent }) {
   };
 
   return (
-    <div className="modal-container" onClick={handleClick}>
+    <>
+      <div className="modal-container" onClick={handleClick}></div>
       <div className="modal">
         {content}
         <button className="top-right icon-button close" onClick={handleClick}>
           <GrClose />
         </button>
       </div>
-    </div>
+    </>
   );
 }
 
