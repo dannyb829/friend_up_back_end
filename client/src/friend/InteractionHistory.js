@@ -10,6 +10,22 @@ function InteractionHistory({
   setModalContent,
   setUser,
 }) {
+  const [typeFilter, setTypeFilter] = useState("both");
+
+  let interactionsToDisplay = userInteractions;
+  switch (typeFilter) {
+    case "communicate":
+      interactionsToDisplay = userInteractions.filter(
+        (interaction) => !interaction["in_person?"]
+      );
+      break;
+    case "visit":
+      interactionsToDisplay = userInteractions.filter(
+        (interaction) => interaction["in_person?"]
+      );
+      break;
+  }
+
   const handleAddInteractionClick = () => {
     setModalContent(
       <AddInteractionForm
@@ -26,10 +42,13 @@ function InteractionHistory({
     <div className="content-container page-container">
       <h3>History</h3>
       <button onClick={handleAddInteractionClick}>➕ Add Interaction</button>
-      <InteractionFilterForm />
+      <InteractionFilterForm
+        typeFilter={typeFilter}
+        setTypeFilter={setTypeFilter}
+      />
       <hr />
       <InteractionList
-        userInteractions={userInteractions}
+        userInteractions={interactionsToDisplay}
         friendId={friendId}
       />
     </div>
