@@ -1,5 +1,5 @@
 class FriendsController < ApplicationController
-  before_action :find_friend, only: %i[show update]
+  before_action :find_friend, only: %i[show update destroy]
 
   def create
     friend = Friend.create!(friend_params)
@@ -20,6 +20,13 @@ class FriendsController < ApplicationController
 
   def show
     render json: @friend
+  end
+
+  # DELETE /friends/:id
+  def destroy
+    @friend.destroy
+
+    render json: @current_user, status: :accepted
   end
 
   private

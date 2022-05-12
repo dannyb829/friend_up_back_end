@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 
 // Default Form Values
 const defaultForm = {
@@ -73,6 +74,8 @@ function EditFriendForm({
   //   { id: 4, group_name: "School" },
   // ];
 
+  const nav = useNavigate();
+
   const handleGroupChange = ({ target: { name, checked } }) => {
     const newValue = checked
       ? [...groups, name]
@@ -144,6 +147,31 @@ function EditFriendForm({
     const updatedFormData = { ...formData, [name]: newValue };
 
     setFormData(updatedFormData);
+  };
+
+  const handleDeleteClick = (e) => {
+    e.preventDefault();
+    const confirmed = window.confirm(
+      "Are you sure you wish to delete this friend from your profile? This cannot be undone."
+    );
+    console.log(confirmed);
+
+    if (confirmed) {
+      fetch(`/friends/${friendship.friend.id}`, {
+        method: "DELETE",
+      })
+        .then((res) => {
+          return res.ok ? res.json() : alert("something went wrong");
+        })
+        .then((data) => {
+          console.log(data);
+          setUser(data);
+          setModalContent(null);
+          setIsModal(false);
+          nav("/");
+        })
+        .catch((error) => alert(error.message));
+    }
   };
 
   return (
@@ -265,6 +293,7 @@ function EditFriendForm({
         </select>
       </label>
       <button>Update Friend</button>
+      <button onClick={handleDeleteClick}>Remove Friend</button>
     </form>
   );
 }
