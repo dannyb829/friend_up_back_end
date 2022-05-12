@@ -6,4 +6,5 @@ class UserSerializer < ActiveModel::Serializer
              :friends_needing_attention
 
   has_many :friendships
+  has_many :interactions
 end

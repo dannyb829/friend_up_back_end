@@ -8,9 +8,17 @@ function InteractionHistory({
   friendId,
   setIsModal,
   setModalContent,
+  setUser,
 }) {
   const handleAddInteractionClick = () => {
-    setModalContent(<AddInteractionForm friendId={friendId} />);
+    setModalContent(
+      <AddInteractionForm
+        friendId={friendId}
+        setIsModal={setIsModal}
+        setModalContent={setModalContent}
+        setUser={setUser}
+      />
+    );
     setIsModal(true);
   };
 

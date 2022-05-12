@@ -8,7 +8,12 @@ const defaultForm = {
   isInPerson: false,
 };
 
-function AddInteractionForm({ friendId }) {
+function AddInteractionForm({
+  friendId,
+  setIsModal,
+  setModalContent,
+  setUser,
+}) {
   // State and Variable Declaration
   const [formData, setFormData] = useState(defaultForm);
   const { date, locationOrMethod, description, isInPerson } = formData;
@@ -35,9 +40,14 @@ function AddInteractionForm({ friendId }) {
       }),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+        // setUserInteractions(data.interactions);
+        setUser(data);
+        setModalContent(null);
+        setIsModal(false);
+      })
       .catch((error) => console.log(error.message));
-    alert("interaction submitted");
     // do form submission actions here
 
     resetForm();
@@ -63,6 +73,7 @@ function AddInteractionForm({ friendId }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h3>Log a New Interaction</h3>
       <label>
         Date
         <input

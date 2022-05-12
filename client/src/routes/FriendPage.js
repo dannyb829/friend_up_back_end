@@ -9,6 +9,7 @@ function FriendPage({
   friendships = [],
   setIsModal,
   setModalContent,
+  setUser,
 }) {
   const { id } = useParams();
 
@@ -37,6 +38,7 @@ function FriendPage({
         friendId={friendship.friend.id}
         setIsModal={setIsModal}
         setModalContent={setModalContent}
+        setUser={setUser}
       />
     </div>
   );
