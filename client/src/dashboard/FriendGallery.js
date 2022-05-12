@@ -19,7 +19,6 @@ function FriendGallery({
   setModalContent,
   groups,
   setUser,
-  setGroups,
 }) {
   const [filterData, setFilterData] = useState(defaultFilter);
   const {
@@ -132,8 +131,7 @@ function FriendGallery({
         setIsModal={setIsModal}
         setModalContent={setModalContent}
         setUser={setUser}
-        userGroups={groups}
-        setUserGroups={setGroups}
+        groups={groups}
       />
     </div>
   );

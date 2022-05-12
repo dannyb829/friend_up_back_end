@@ -7,6 +7,7 @@ class UserSerializer < ActiveModel::Serializer
              :interactions
 
   has_many :friendships
+  has_many :groups
 
   def interactions
     object.interactions.order(date: :desc)

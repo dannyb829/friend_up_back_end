@@ -6,8 +6,7 @@ function FriendList({
   setIsModal,
   setModalContent,
   setUser,
-  userGroups,
-  setUserGroups,
+  groups,
 }) {
   const friends_to_display = friendships.map((friendship) => {
     return (
@@ -17,8 +16,7 @@ function FriendList({
         setIsModal={setIsModal}
         setModalContent={setModalContent}
         setUser={setUser}
-        userGroups={userGroups}
-        setUserGroups={setUserGroups}
+        groups={groups}
       />
     );
   });

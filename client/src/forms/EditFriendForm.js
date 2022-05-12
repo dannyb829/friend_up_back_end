@@ -25,7 +25,6 @@ function EditFriendForm({
   setModalContent,
   setUser,
   userGroups,
-  setUserGroups,
 }) {
   // Default Form Values
 
