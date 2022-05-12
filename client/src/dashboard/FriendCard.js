@@ -4,6 +4,7 @@ import LastContactInfo from "./LastContactInfo";
 import { useNavigate } from "react-router";
 import OptionsButton from "../structure/OptionsButton";
 import EditFriendForm from "../forms/EditFriendForm";
+import AddInteractionForm from "../forms/AddInteractionForm";
 
 function FriendCard({
   friendship,
@@ -35,10 +36,24 @@ function FriendCard({
     setIsPopupUp(false);
   };
 
+  const handleAddInteractionClick = () => {
+    setModalContent(
+      <AddInteractionForm
+        friendId={friendship.friend.id}
+        setIsModal={setIsModal}
+        setModalContent={setModalContent}
+        setUser={setUser}
+      />
+    );
+    setIsModal(true);
+    setIsPopupUp(false);
+  };
+
   const popupOptions = (
     <>
       <button onClick={() => navigate(`/friend/${id}`)}>view</button>
       <button onClick={handleEditFriendClick}>edit</button>
+      <button onClick={handleAddInteractionClick}>log new</button>
     </>
   );
 

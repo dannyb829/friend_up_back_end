@@ -19,7 +19,7 @@ const defaultForm = {
   groups: [],
 };
 
-function AddFriendForm({usergroups, setUser, setIsModal, setModalContent }) {
+function AddFriendForm({ usergroups, setUser, setIsModal, setModalContent }) {
   // State and Variable Declaration
 
   const [formData, setFormData] = useState(defaultForm);
@@ -93,7 +93,7 @@ function AddFriendForm({usergroups, setUser, setIsModal, setModalContent }) {
         phone_number: parseInt(phone),
         image_url: image_url,
         description: description,
-        groups: groups
+        groups: groups,
       }),
     })
       .then((res) => res.json())
@@ -118,9 +118,10 @@ function AddFriendForm({usergroups, setUser, setIsModal, setModalContent }) {
         })
           .then((res) => res.json())
           .then((data) => {
-            setIsModal(false)
-            setModalContent(null)
-            setUser(data)})
+            setIsModal(false);
+            setModalContent(null);
+            setUser(data);
+          })
           .catch((error) => console.log(error.message));
       })
       .catch((error) => console.log(error.message));
