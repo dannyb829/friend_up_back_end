@@ -4,7 +4,12 @@ import FriendProfile from "../friend/FriendProfile";
 import InteractionHistory from "../friend/InteractionHistory";
 import { useParams } from "react-router-dom";
 
-function FriendPage({ userInteractions, friendships = [] }) {
+function FriendPage({
+  userInteractions,
+  friendships = [],
+  setIsModal,
+  setModalContent,
+}) {
   const { id } = useParams();
 
   // const [friend ,setFriend] = useState({})
@@ -22,8 +27,17 @@ function FriendPage({ userInteractions, friendships = [] }) {
     <div>
       <Alert />
       <Alert />
-      <FriendProfile friendship={friendship} />
-      <InteractionHistory userInteractions={userInteractions} friendId={8} />
+      <FriendProfile
+        friendship={friendship}
+        setIsModal={setIsModal}
+        setModalContent={setModalContent}
+      />
+      <InteractionHistory
+        userInteractions={userInteractions}
+        friendId={friendship.friend.id}
+        setIsModal={setIsModal}
+        setModalContent={setModalContent}
+      />
     </div>
   );
 }

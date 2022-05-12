@@ -10247,3 +10247,965 @@ Completed 200 OK in 10ms (Views: 3.2ms | ActiveRecord: 0.5ms | Allocations: 3595
 Completed 200 OK in 33ms (Views: 6.4ms | ActiveRecord: 13.2ms | Allocations: 10929)
 
 
+Started GET "/auth" for 127.0.0.1 at 2022-05-12 10:09:11 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers]   [1m[36mFriendship Load (0.6ms)[0m  [1m[34mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/models/user.rb:21:in `friends_needing_attention'
+[active_model_serializers]   [1m[36mFriend Load (0.4ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (2.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.5ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mFriend Load (3.8ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.3ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (1.3ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mFriend Load (4.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (5.7ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.4ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.6ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.3ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (237.91ms)
+Completed 200 OK in 276ms (Views: 216.8ms | ActiveRecord: 34.4ms | Allocations: 45138)
+
+
+Started GET "/groups" for 127.0.0.1 at 2022-05-12 10:09:12 -0400
+Started GET "/interactions" for 127.0.0.1 at 2022-05-12 10:09:12 -0400
+Processing by InteractionsController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mInteraction Load (0.4ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/interactions_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.96ms)
+Completed 200 OK in 8ms (Views: 4.2ms | ActiveRecord: 0.8ms | Allocations: 1826)
+
+
+Processing by GroupsController#index as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/groups_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 1.6ms | Allocations: 1560)
+
+
+Started GET "/auth" for 127.0.0.1 at 2022-05-12 10:09:15 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers]   [1m[36mFriendship Load (0.3ms)[0m  [1m[34mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/models/user.rb:21:in `friends_needing_attention'
+[active_model_serializers]   [1m[36mFriend Load (0.4ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.5ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mFriend Load (0.4ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.3ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.3ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.3ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.4ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.4ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.8ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.4ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (217.23ms)
+Completed 200 OK in 220ms (Views: 211.3ms | ActiveRecord: 6.8ms | Allocations: 41842)
+
+
+Started GET "/interactions" for 127.0.0.1 at 2022-05-12 10:09:15 -0400
+Started GET "/groups" for 127.0.0.1 at 2022-05-12 10:09:15 -0400
+Processing by GroupsController#index as */*
+Processing by InteractionsController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mGroup Load (0.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/groups_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.47ms)
+Completed 200 OK in 9ms (Views: 3.1ms | ActiveRecord: 1.1ms | Allocations: 2047)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mInteraction Load (0.7ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/interactions_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.02ms)
+Completed 200 OK in 30ms (Views: 3.9ms | ActiveRecord: 11.2ms | Allocations: 6868)
+
+
+Started GET "/auth" for 127.0.0.1 at 2022-05-12 10:30:26 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers]   [1m[36mFriendship Load (1.8ms)[0m  [1m[34mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/models/user.rb:21:in `friends_needing_attention'
+[active_model_serializers]   [1m[36mFriend Load (0.7ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.7ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mFriend Load (0.4ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.7ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mFriend Load (1.4ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.3ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.4ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mFriend Load (0.4ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.4ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.8ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.4ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.2ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (12.5ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (235.17ms)
+Completed 200 OK in 267ms (Views: 213.4ms | ActiveRecord: 35.9ms | Allocations: 45105)
+
+
+Started GET "/interactions" for 127.0.0.1 at 2022-05-12 10:30:26 -0400
+Processing by InteractionsController#index as */*
+Started GET "/groups" for 127.0.0.1 at 2022-05-12 10:30:26 -0400
+Processing by GroupsController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mInteraction Load (0.4ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/interactions_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.4ms)
+Completed 200 OK in 12ms (Views: 5.9ms | ActiveRecord: 1.4ms | Allocations: 2553)
+
+
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mGroup Load (0.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/groups_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.53ms)
+Completed 200 OK in 40ms (Views: 3.7ms | ActiveRecord: 17.8ms | Allocations: 6742)
+
+
+Started GET "/auth" for 127.0.0.1 at 2022-05-12 10:32:29 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers]   [1m[36mFriendship Load (0.7ms)[0m  [1m[34mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/models/user.rb:21:in `friends_needing_attention'
+[active_model_serializers]   [1m[36mFriend Load (0.7ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (1.2ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mFriend Load (0.5ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (2.3ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mFriend Load (0.4ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (11.6ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (28.8ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mFriend Load (0.7ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.5ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.5ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.2ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.4ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.2ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.4ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (275.9ms)
+Completed 200 OK in 280ms (Views: 226.2ms | ActiveRecord: 51.0ms | Allocations: 41924)
+
+
+Started GET "/interactions" for 127.0.0.1 at 2022-05-12 10:32:29 -0400
+Started GET "/groups" for 127.0.0.1 at 2022-05-12 10:32:29 -0400
+Processing by InteractionsController#index as */*
+Processing by GroupsController#index as */*
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mInteraction Load (0.7ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/interactions_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.86ms)
+Completed 200 OK in 13ms (Views: 6.1ms | ActiveRecord: 2.9ms | Allocations: 2800)
+
+
+  [1m[36mGroup Load (2.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/groups_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 23ms (Views: 13.6ms | ActiveRecord: 3.7ms | Allocations: 3532)
+
+
+Started GET "/auth" for 127.0.0.1 at 2022-05-12 10:33:22 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers]   [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/models/user.rb:21:in `friends_needing_attention'
+[active_model_serializers]   [1m[36mFriend Load (0.8ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.6ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mFriend Load (5.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (3.3ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mFriend Load (0.4ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (3.2ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (3.8ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mFriend Load (0.5ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.8ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.3ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.5ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.3ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (322.93ms)
+Completed 200 OK in 328ms (Views: 301.9ms | ActiveRecord: 22.1ms | Allocations: 41839)
+
+
+Started GET "/interactions" for 127.0.0.1 at 2022-05-12 10:33:23 -0400
+Started GET "/groups" for 127.0.0.1 at 2022-05-12 10:33:23 -0400
+Processing by InteractionsController#index as */*
+Processing by GroupsController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mInteraction Load (1.6ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/interactions_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.73ms)
+  [1m[36mGroup Load (2.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."user_id" = $1[0m  [["user_id", 12]]
+Completed 200 OK in 7ms (Views: 3.0ms | ActiveRecord: 1.9ms | Allocations: 2624)
+
+
+  ↳ app/controllers/groups_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.65ms)
+Completed 200 OK in 11ms (Views: 4.6ms | ActiveRecord: 2.8ms | Allocations: 3563)
+
+
+Started GET "/auth" for 127.0.0.1 at 2022-05-12 10:34:56 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers]   [1m[36mFriendship Load (0.4ms)[0m  [1m[34mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/models/user.rb:21:in `friends_needing_attention'
+[active_model_serializers]   [1m[36mFriend Load (0.5ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.4ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mFriend Load (0.4ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.5ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.2ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.3ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mFriend Load (0.4ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friendship.rb:22:in `communication_status'
+[active_model_serializers]   [1m[36mInteraction Load (0.3ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.2ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (7.2ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 24], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mInteraction Load (0.4ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 20], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 19], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.1ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", false], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:15:in `most_recent_communication_date'
+[active_model_serializers]   [1m[36mCACHE Interaction Load (0.0ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."friend_id" = $1 AND "interactions"."in_person?" = $2 ORDER BY "interactions"."date" DESC LIMIT $3[0m  [["friend_id", 25], ["in_person?", true], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/friend.rb:20:in `most_recent_meeting_date'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (238.34ms)
+Completed 200 OK in 247ms (Views: 230.7ms | ActiveRecord: 13.3ms | Allocations: 41851)
+
+
+Started GET "/groups" for 127.0.0.1 at 2022-05-12 10:34:56 -0400
+Started GET "/interactions" for 127.0.0.1 at 2022-05-12 10:34:56 -0400
+Processing by GroupsController#index as */*
+Processing by InteractionsController#index as */*
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mGroup Load (9.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/groups_controller.rb:5:in `index'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.65ms)
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 200 OK in 19ms (Views: 4.4ms | ActiveRecord: 11.6ms | Allocations: 2320)
+
+
+  [1m[36mInteraction Load (1.2ms)[0m  [1m[34mSELECT "interactions".* FROM "interactions" WHERE "interactions"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/interactions_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.83ms)
+Completed 200 OK in 22ms (Views: 3.4ms | ActiveRecord: 2.6ms | Allocations: 3542)
+
+
+Started POST "/interactions" for 127.0.0.1 at 2022-05-12 11:00:06 -0400
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for InteractionsController
+Did you mean?  index):
+  
+actionpack (6.1.5.1) lib/abstract_controller/base.rb:160:in `process'
+actionpack (6.1.5.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.5.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.5.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.5.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.5.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.5.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.5.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.5.1) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.1.5.1) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.5.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.5.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.5.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.5.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.5.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.5.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.5.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.5.1) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.5.1) lib/rails/engine.rb:539:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
