@@ -21,7 +21,9 @@ function FriendCard({ friendship }) {
 
   return (
     <div className={"content-container card " + status + "-card"}>
-      <Avatar image_url={image_url} />
+      <div onClick={() => navigate(`/friend/${id}`)}>
+        <Avatar image_url={image_url} />
+      </div>
       <OptionsButton popupOptions={popupOptions} />
       <span>{first_name}</span>
       <LastContactInfo friendship={friendship} />

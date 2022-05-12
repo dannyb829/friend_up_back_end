@@ -28,6 +28,9 @@
   --modal-bg-2: #cad4d9;
   --modal-gradient: var(--modal-bg-1), var(--modal-bg-2);
   --unclicked-gray: #4e4e4e;
+  --poor-card: #ffced9;
+  --warn-card: #ffeec3;
+  --good-card: #c3ffdb;
 }
 
 /* APP GENERAL --------------------------------------------------------- */
@@ -205,9 +208,14 @@ hr {
   height: 11em;
 }
 
-.card > .avatar {
+.card .avatar {
   width: 8em;
   height: 8em;
+  cursor: pointer;
+}
+
+.card .avatar > img:hover {
+  border-color: white;
 }
 
 .avatar > img {
@@ -233,14 +241,39 @@ hr {
   flex-direction: column;
   align-items: center;
   width: 14em;
+  transition-duration: 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05) translate(0, -10px);
+  border: 2px solid var(--logo-light);
 }
 
 .poor-card {
-  /* background-color: red; */
+  background-color: var(--poor-card);
 }
 
 .poor-font {
   color: red;
+  font-weight: bold;
+}
+
+.warn-card {
+  background-color: var(--warn-card);
+}
+
+.warn-font {
+  color: red;
+  font-weight: bold;
+}
+
+.good-card {
+  background-color: var(--good-card);
+}
+
+.good-font {
+  color: red;
+  font-weight: bold;
 }
 
 /* MODAL --------------------------------------------------------- */
@@ -307,7 +340,7 @@ hr {
   z-index: 1;
   top: 0;
   left: 50%;
-  transform: translate(-20%, -130%);
+  transform: translate(-20%, calc(-100% - 15px));
   width: 100px;
   height: fit-content;
   border: 1px solid white;
@@ -326,6 +359,7 @@ hr {
   color: var(--unclicked-gray);
   transition-duration: 0.3s;
   margin: 0.1em;
+  cursor: pointer;
 }
 
 .popup button:hover {
