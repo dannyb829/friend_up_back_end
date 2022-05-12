@@ -1,6 +1,12 @@
 class FriendsController < ApplicationController
     before_action :find_friend, only: :show
 
+    def create 
+        friend = Friend.create!(friend_params)
+        params[:groups].each { |group| GroupFriend.create!(group: Group.find_by!(group_name:group), friend: friend)}
+        render json: friend, status: :created
+    end
+
     def show 
         render json: @friend
     end
@@ -9,6 +15,17 @@ class FriendsController < ApplicationController
 
     def find_friend
         @friend = Friend.find(params[:id])
+    end
+
+    def friend_params
+        params.permit(
+            :first_name, 
+            :last_name, 
+            :email, 
+            :phone_number, 
+            :image_url, 
+            :description
+        )
     end
 
 end

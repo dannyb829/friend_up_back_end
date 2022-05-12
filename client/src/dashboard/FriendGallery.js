@@ -3,9 +3,9 @@ import FriendFilterForm from "../forms/FriendFilterForm";
 import FriendList from "./FriendList";
 import AddFriendForm from "../forms/AddFriendForm";
 
-function FriendGallery({ friendships, setIsModal, setModalContent }) {
+function FriendGallery({ friendships, setIsModal, setModalContent, groups }) {
   const handleAddFriendClick = () => {
-    setModalContent(<AddFriendForm />);
+    setModalContent(<AddFriendForm usergroups={groups} />);
     setIsModal(true);
   };
 

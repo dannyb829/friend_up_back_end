@@ -19,8 +19,9 @@ const defaultForm = {
   groups: [],
 };
 
-function AddFriendForm(props) {
+function AddFriendForm({usergroups}) {
   // State and Variable Declaration
+
   const [formData, setFormData] = useState(defaultForm);
   const {
     first,
@@ -47,7 +48,7 @@ function AddFriendForm(props) {
     { id: 4, group_name: "School" },
   ];
 
-  const handleGroupChange = ({ target: { name, checked } }) => {
+  const handleGroupChange = ({ target: { name, checked, id } }) => {
     const newValue = checked
       ? [...groups, name]
       : groups.filter((group) => group !== name);
@@ -57,12 +58,13 @@ function AddFriendForm(props) {
     setFormData(updatedFormData);
   };
 
-  const groupCheckboxes = groupsList.map((group) => {
+  const groupCheckboxes = usergroups.map((group) => {
     return (
       <label key={group.id}>
         <input
           name={group.group_name}
           type="checkbox"
+          id={group.id}
           checked={groups.includes(group.group_name)}
           onChange={handleGroupChange}
         />
@@ -91,6 +93,7 @@ function AddFriendForm(props) {
         phone_number: parseInt(phone),
         image_url: image_url,
         description: description,
+        groups: groups
       }),
     })
       .then((res) => res.json())

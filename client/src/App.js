@@ -14,6 +14,7 @@ function App() {
   const [userInteractions, setUserInteractions] = useState([]);
   const [isModal, setIsModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
+  const [groups ,setGroups] = useState([]) 
 
   const navigate = useNavigate();
 
@@ -23,6 +24,7 @@ function App() {
         ? r.json().then((data) => {
             setUser(data);
             getUserInteractions();
+            getGroups();
           })
         : navigate("/login")
     );
@@ -36,6 +38,12 @@ function App() {
       .then((interactions) => setUserInteractions(interactions));
   }
 
+  function getGroups() {
+    fetch('/groups')
+    .then(resp => resp.json())
+    .then(data => setGroups(data))
+  }
+
   return (
     <>
       <div className={user?.id ? "header-shift" : null}>
@@ -47,6 +55,7 @@ function App() {
                 user={user}
                 setIsModal={setIsModal}
                 setModalContent={setModalContent}
+                groups={groups}
               />
             }
           />
