@@ -6,7 +6,7 @@ function FriendList({ friendships = [] }) {
     return <FriendCard key={friendship.id} friendship={friendship} />;
   });
 
-  return <div>{friends_to_display}</div>;
+  return <div className="gallery">{friends_to_display}</div>;
 }
 
 export default FriendList;
