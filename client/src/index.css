@@ -259,12 +259,12 @@ hr {
   font-weight: bold;
 }
 
-.warn-card {
+.warning-card {
   background-color: var(--warn-card);
 }
 
-.warn-font {
-  color: red;
+.warning-font {
+  color: rgb(164, 98, 0);
   font-weight: bold;
 }
 
@@ -273,8 +273,8 @@ hr {
 }
 
 .good-font {
-  color: red;
-  font-weight: bold;
+  color: black;
+  font-weight: normal;
 }
 
 /* MODAL --------------------------------------------------------- */
