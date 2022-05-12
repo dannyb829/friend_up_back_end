@@ -19,7 +19,14 @@ const defaultForm = {
   groups: [],
 };
 
-function EditFriendForm({friendship, setIsModal, setModalContent, setUser, userGroups, setUserGroups}) {
+function EditFriendForm({
+  friendship,
+  setIsModal,
+  setModalContent,
+  setUser,
+  userGroups,
+  setUserGroups,
+}) {
   // Default Form Values
 
   const currentValues = {
@@ -39,7 +46,7 @@ function EditFriendForm({friendship, setIsModal, setModalContent, setUser, userG
     communicationMaxUnit: 1,
     groups: friendship.groups,
   };
-console.log('in edit form this is friend', friendship)
+  console.log("in edit form this is friend", friendship);
   // State and Variable Declaration
   const [formData, setFormData] = useState(currentValues);
   const {
@@ -67,7 +74,6 @@ console.log('in edit form this is friend', friendship)
   //   { id: 4, group_name: "School" },
   // ];
 
-
   const handleGroupChange = ({ target: { name, checked } }) => {
     const newValue = checked
       ? [...groups, name]
@@ -77,14 +83,14 @@ console.log('in edit form this is friend', friendship)
 
     setFormData(updatedFormData);
   };
- console.log(groups)
+  console.log(groups);
   const groupCheckboxes = userGroups.map((group) => {
     return (
       <label key={group.id}>
         <input
           name={group.group_name}
           type="checkbox"
-          checked={groups.find(g=> g.group_name === group.group_name)}
+          checked={groups.find((g) => g.group_name === group.group_name)}
           onChange={handleGroupChange}
         />
         {group.group_name}
@@ -112,14 +118,21 @@ console.log('in edit form this is friend', friendship)
         phone_number: parseInt(phone),
         image_url: image_url,
         description: description,
-        groups: groups
+        groups: groups,
+        meeting_reminder_interval:
+          meetingReminderInterval * meetingReminderUnit,
+        meeting_max: meetingMax * meetingMaxUnit,
+        communication_reminder_interval:
+          communicationReminderInterval * communicationReminderUnit,
+        communication_max: communicationMax * communicationMaxUnit,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setUser(data);
         setIsModal(false);
-        setModalContent(null)
+        setModalContent(null);
       })
       .catch((error) => console.log(error.message));
 

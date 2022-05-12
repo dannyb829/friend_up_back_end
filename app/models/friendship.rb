@@ -55,7 +55,7 @@ class Friendship < ApplicationRecord
   def status
     if (communication_status == 'poor' || meeting_status == 'poor')
       return 'poor'
-    elsif (communication_status == 'waring' || meeting_status == 'warning')
+    elsif (communication_status == 'warning' || meeting_status == 'warning')
       return 'warning'
     else
       return 'good'
