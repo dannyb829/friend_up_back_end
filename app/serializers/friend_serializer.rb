@@ -6,5 +6,6 @@ class FriendSerializer < ActiveModel::Serializer
              :phone_number,
              :image_url,
              :description,
-             :friendships
+             :friendships,
+             :group_names
 end

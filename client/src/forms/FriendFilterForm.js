@@ -2,19 +2,7 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "./SearchBar";
 import { Checkbox, Radio } from "react-btn-checkbox";
 
-// Default Form Values
-const defaultForm = {
-  searchInput: "",
-  groupFilter: "all",
-  isShowPoor: true,
-  isShowWarning: true,
-  isShowGood: true,
-  typeFilter: "either",
-};
-
-function FriendFilterForm(props) {
-  // State and Variable Declaration
-  const [formData, setFormData] = useState(defaultForm);
+function FriendFilterForm({ formData, setFormData }) {
   const {
     searchInput,
     groupFilter,
@@ -23,18 +11,6 @@ function FriendFilterForm(props) {
     isShowGood,
     typeFilter,
   } = formData;
-
-  // Reset formData to default values
-  const resetForm = () => setFormData(defaultForm);
-
-  // // Handles form onSubmit event
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   // do form submission actions here
-
-  //   resetForm();
-  // }
 
   // Handles input onChange events: input name attributes must match formData keys
   const handleFormChange = ({ target: { type, name, value, checked } }) => {
@@ -69,7 +45,7 @@ function FriendFilterForm(props) {
           value={groupFilter}
           onChange={handleFormChange}
         >
-          <option value={"all"}>All</option>
+          <option value={""}>All</option>
           <option value={"two"}>two</option>
           <option value={"three"}>three</option>
         </select>

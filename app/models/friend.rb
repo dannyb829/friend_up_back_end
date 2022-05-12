@@ -20,4 +20,8 @@ class Friend < ApplicationRecord
     meeting = interactions.where(in_person?: true).order(:date).last
     meeting ? meeting.date.to_date : nil
   end
+
+  def group_names
+    groups.pluck { |g| g.group_name }
+  end
 end

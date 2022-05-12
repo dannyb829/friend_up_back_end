@@ -65,4 +65,8 @@ class Friendship < ApplicationRecord
   def is_need_attention?
     return self.status != 'good'
   end
+
+  def group_names
+    return friend.groups.pluck(:group_name)
+  end
 end

@@ -7,7 +7,8 @@ class FriendshipSerializer < ActiveModel::Serializer
              :meeting_status,
              :days_since_communication,
              :days_since_meeting,
-             :friend
+             :friend,
+             :group_names
 
   # belongs_to :friend
 end
