@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FriendFilterForm from "../forms/FriendFilterForm";
 import FriendList from "./FriendList";
 import AddFriendForm from "../forms/AddFriendForm";
+import EditGroupsForm from "../forms/EditGroupsForm";
 
 // Default Filter Values
 const defaultFilter = {
@@ -119,11 +120,23 @@ function FriendGallery({
     setIsModal(true);
   };
 
+  const handleEditGroupsClick = () => {
+    setModalContent(
+      <EditGroupsForm
+        groups={groups}
+        setUser={setUser}
+        setModalContent={setModalContent}
+        setIsModal={setIsModal}
+      />
+    );
+    setIsModal(true);
+  };
+
   return (
     <div className="content-container page-container">
       <h3>Friends</h3>
       <button onClick={handleAddFriendClick}>➕ Add Friend</button>
-      <button>✍️ Edit Groups</button>
+      <button onClick={handleEditGroupsClick}>✍️ Edit Groups</button>
       <FriendFilterForm formData={filterData} setFormData={setFilterData} />
       <hr />
       <FriendList
