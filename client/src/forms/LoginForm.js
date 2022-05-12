@@ -16,7 +16,6 @@ function LoginForm({ setUser }) {
     }).then((r) =>
       r.ok
         ? r.json().then((data) => {
-            console.log(data);
             setUser(data);
             navigate("/");
           })

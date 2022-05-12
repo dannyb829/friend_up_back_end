@@ -13,13 +13,15 @@ class FriendshipSerializer < ActiveModel::Serializer
              :communication_reminder_interval,
              :communication_max,
              :groups,
-             :user
+             :user,
+             :group_names
 
-             def groups 
-              object.friend.groups.where(user_id: user)
-             end
+  def groups
+    object.friend.groups.where(user_id: user)
+  end
+
   # # belongs_to :friend, include: :groups
-             def user
-              object.user.id
-             end
+  def user
+    object.user.id
+  end
 end

@@ -7,9 +7,11 @@ class FriendSerializer < ActiveModel::Serializer
              :image_url,
              :description,
              :friendships,
-             :groups
-    # has_many :groups
-    def groups
-      object.groups
-    end
+             :groups,
+             :group_names
+
+  # has_many :groups
+  def groups
+    object.groups
+  end
 end

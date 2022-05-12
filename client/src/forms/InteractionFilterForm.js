@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-function InteractionFilterForm(props) {
+function InteractionFilterForm({ typeFilter, setTypeFilter }) {
   // State and Variable Declaration
-  const [typeFilter, setTypeFilter] = useState("both");
+  // const [typeFilter, setTypeFilter] = useState("both");
 
   // Handles input onChange events: input name attributes must match formData keys
   const handleFilterChange = ({ target: { name } }) => {

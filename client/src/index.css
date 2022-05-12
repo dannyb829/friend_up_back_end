@@ -29,8 +29,11 @@
   --modal-gradient: var(--modal-bg-1), var(--modal-bg-2);
   --unclicked-gray: #4e4e4e;
   --poor-card: #ffced9;
+  --poor-gradient: var(--modal-bg-1), var(--poor-card);
   --warn-card: #ffeec3;
+  --warn-gradient: var(--modal-bg-1), var(--warn-card);
   --good-card: #c3ffdb;
+  --good-gradient: var(--modal-bg-1), var(--good-card);
 }
 
 /* APP GENERAL --------------------------------------------------------- */
@@ -214,8 +217,15 @@ hr {
   cursor: pointer;
 }
 
+.card .avatar > img {
+  transition-duration: 0.2s;
+}
+
 .card .avatar > img:hover {
-  border-color: white;
+  border-color: #ffe75f;
+  border-width: 3px;
+  /* opacity: 80%; */
+  transform: scale(1.05);
 }
 
 .avatar > img {
@@ -242,6 +252,7 @@ hr {
   align-items: center;
   width: 14em;
   transition-duration: 0.2s;
+  background-image: linear-gradient(var(--modal-gradient));
 }
 
 .card:hover {
@@ -251,7 +262,7 @@ hr {
 }
 
 .poor-card {
-  background-color: var(--poor-card);
+  background-image: linear-gradient(var(--poor-gradient));
 }
 
 .poor-font {
@@ -260,7 +271,7 @@ hr {
 }
 
 .warning-card {
-  background-color: var(--warn-card);
+  background-image: linear-gradient(var(--warn-gradient));
 }
 
 .warning-font {
@@ -269,7 +280,7 @@ hr {
 }
 
 .good-card {
-  background-color: var(--good-card);
+  background-image: linear-gradient(var(--good-gradient));
 }
 
 .good-font {
@@ -294,6 +305,7 @@ hr {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70%;
+  max-width: 40em;
   height: fit-content;
   max-height: calc(
     0.7 * (100vh - var(--header-height) - (calc(2 * var(--modal-padding))))
@@ -368,4 +380,15 @@ hr {
   color: var(--logo-dark);
   /* font-size: 1em; */
   font-weight: bold;
+}
+
+/* POPUP --------------------------------------------------------- */
+
+.profile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20em;
+  /* transition-duration: 0.2s; */
 }

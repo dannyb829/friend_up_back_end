@@ -11,10 +11,10 @@ import Modal from "./structure/Modal";
 function App() {
   // const [isLoggedIn, setisLoggedIn] = useState(false);
   const [user, setUser] = useState({});
-  const [userInteractions, setUserInteractions] = useState([]);
+  // const [userInteractions, setUserInteractions] = useState([]);
   const [isModal, setIsModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
-  const [groups ,setGroups] = useState([]) 
+  const [groups, setGroups] = useState([]);
 
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ function App() {
       r.ok
         ? r.json().then((data) => {
             setUser(data);
-            getUserInteractions();
+            // getUserInteractions();
             getGroups();
           })
         : navigate("/login")
@@ -32,16 +32,16 @@ function App() {
   // TODO: have dashboard reroute to LoginPage if not logged in
   // TODO: have friend page index into specific friend
 
-  function getUserInteractions() {
-    fetch("/interactions")
-      .then((r) => r.json())
-      .then((interactions) => setUserInteractions(interactions));
-  }
+  // function getUserInteractions() {
+  //   fetch("/interactions")
+  //     .then((r) => r.json())
+  //     .then((interactions) => setUserInteractions(interactions));
+  // }
 
   function getGroups() {
-    fetch('/groups')
-    .then(resp => resp.json())
-    .then(data => setGroups(data))
+    fetch("/groups")
+      .then((resp) => resp.json())
+      .then((data) => setGroups(data));
   }
 
   return (
@@ -80,10 +80,11 @@ function App() {
             path="/friend/:id"
             element={
               <FriendPage
-                userInteractions={userInteractions}
+                userInteractions={user.interactions}
                 friendships={user.friendships}
                 setIsModal={setIsModal}
                 setModalContent={setModalContent}
+                setUser={setUser}
               />
             }
           />
