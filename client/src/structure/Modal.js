@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { GrClose } from "react-icons/gr";
 
 function Modal({ content, setIsModal, setModalContent }) {
   const handleClick = () => {
@@ -7,12 +8,15 @@ function Modal({ content, setIsModal, setModalContent }) {
   };
 
   return (
-    <div className="modal-container">
+    <>
+      <div className="modal-container" onClick={handleClick}></div>
       <div className="modal">
         {content}
-        <button onClick={handleClick}>X</button>
+        <button className="top-right icon-button close" onClick={handleClick}>
+          <GrClose />
+        </button>
       </div>
-    </div>
+    </>
   );
 }
 

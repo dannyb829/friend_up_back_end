@@ -16,7 +16,11 @@ function FriendGallery({ friendships, setIsModal, setModalContent, groups }) {
       <button>✍️ Edit Groups</button>
       <FriendFilterForm />
       <hr />
-      <FriendList friendships={friendships} />
+      <FriendList
+        friendships={friendships}
+        setIsModal={setIsModal}
+        setModalContent={setModalContent}
+      />
     </div>
   );
 }

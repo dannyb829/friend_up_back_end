@@ -27,6 +27,10 @@
   --modal-bg-1: white;
   --modal-bg-2: #cad4d9;
   --modal-gradient: var(--modal-bg-1), var(--modal-bg-2);
+  --unclicked-gray: #4e4e4e;
+  --poor-card: #ffced9;
+  --warn-card: #ffeec3;
+  --good-card: #c3ffdb;
 }
 
 /* APP GENERAL --------------------------------------------------------- */
@@ -98,6 +102,17 @@ code {
   transform: translate(-50%, -50%);
 }
 
+.top-right {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+
+/* .modal-container .top-right {
+  top: 1em;
+  right: 1em;
+} */
+
 .flex-col {
   display: flex;
   flex-direction: column;
@@ -116,15 +131,15 @@ code {
 }
 
 .content-container {
-  background-color: var(--container-bg);
   padding: 1.5em;
   margin: 1em;
-  border: 1px solid var(--container-border);
   border-radius: 33px;
+  box-shadow: 3px 3px 5px 0px var(--shadow-color);
 }
 
 .page-container {
-  box-shadow: 3px 3px 5px 0px var(--shadow-color);
+  border: 1px solid var(--container-border);
+  background-color: var(--container-bg);
 }
 
 h3 {
@@ -193,9 +208,14 @@ hr {
   height: 11em;
 }
 
-.card > .avatar {
+.card .avatar {
   width: 8em;
   height: 8em;
+  cursor: pointer;
+}
+
+.card .avatar > img:hover {
+  border-color: white;
 }
 
 .avatar > img {
@@ -203,16 +223,58 @@ hr {
   height: 100%;
   border-radius: 100%;
   object-fit: cover;
-  border: 2px solid var(--logo-dark);
+  border: 2px solid black;
 }
 
 /* CARDS --------------------------------------------------------- */
 
-.poor-container {
-  /* background-color: red; */
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
+
+.card {
+  position: relative;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 14em;
+  transition-duration: 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05) translate(0, -10px);
+  box-shadow: 5px 10px 10px 0px var(--shadow-color);
+  /* border: 1px solid var(--logo-light); */
+}
+
+.poor-card {
+  background-color: var(--poor-card);
+}
+
 .poor-font {
   color: red;
+  font-weight: bold;
+}
+
+.warn-card {
+  background-color: var(--warn-card);
+}
+
+.warn-font {
+  color: red;
+  font-weight: bold;
+}
+
+.good-card {
+  background-color: var(--good-card);
+}
+
+.good-font {
+  color: red;
+  font-weight: bold;
 }
 
 /* MODAL --------------------------------------------------------- */
@@ -238,6 +300,7 @@ hr {
   );
   background-image: linear-gradient(var(--modal-gradient));
   border-radius: 33px;
+  border: 2px solid white;
   padding: var(--modal-padding);
   overflow-y: scroll;
 }
@@ -245,4 +308,64 @@ hr {
 .modal form {
   display: flex;
   flex-direction: column;
+}
+
+.modal .close {
+  font-size: 1em;
+}
+
+/* BUTTONS --------------------------------------------------------- */
+
+.icon-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+  color: var(--unclicked-gray);
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.icon-button:hover {
+  opacity: 100%;
+}
+
+/* POPUP --------------------------------------------------------- */
+
+.popup-container {
+  position: relative;
+}
+
+.popup {
+  position: absolute;
+  padding: 5px;
+  z-index: 1;
+  top: 0;
+  left: 50%;
+  transform: translate(-20%, calc(-100% - 15px));
+  width: 100px;
+  height: fit-content;
+  border: 1px solid white;
+  border-radius: 10%;
+  box-shadow: 3px 3px 5px 0px var(--shadow-color);
+  background-image: linear-gradient(var(--modal-gradient));
+  display: flex;
+  flex-direction: column;
+}
+
+.popup button {
+  background-color: transparent;
+  font-size: 1em;
+  border: none;
+  border-radius: 10%;
+  color: var(--unclicked-gray);
+  transition-duration: 0.3s;
+  margin: 0.1em;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  background-color: var(--container-bg);
+  color: var(--logo-dark);
+  /* font-size: 1em; */
+  font-weight: bold;
 }
