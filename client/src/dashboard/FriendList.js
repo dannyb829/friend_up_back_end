@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
 import FriendCard from "./FriendCard";
 
 function FriendList({ friendships = [], setIsModal, setModalContent }) {
