@@ -74,58 +74,62 @@ function EditInteractionForm({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Edit this Interaction with {friend["first_name"]}</h3>
-      <label>
-        Date
+    <>
+      <div className="lr-cont">
+        <h3>Edit this Interaction with {friend["first_name"]}</h3>
+      </div>
+      <hr></hr>
+      <form onSubmit={handleSubmit}>
+        <label>Date</label>
         <input
           type="date"
           name="date"
           value={date}
           onChange={handleFormChange}
         />
-      </label>
-      <label>
-        Type
+
         <label>
-          <input
-            name="isInPerson"
-            type="radio"
-            value={!!false}
-            checked={!isInPerson}
-            onChange={handleFormChange}
-          />
-          Communication
+          Type
+          <label>
+            <input
+              name="isInPerson"
+              type="radio"
+              value={!!false}
+              checked={!isInPerson}
+              onChange={handleFormChange}
+            />
+            Communication
+          </label>
+          <label>
+            <input
+              name="isInPerson"
+              type="radio"
+              value={!!true}
+              checked={isInPerson}
+              onChange={handleFormChange}
+            />
+            In-Person
+          </label>
         </label>
         <label>
+          {isInPerson ? "Location" : "Method (call, text, etc.)"}
           <input
-            name="isInPerson"
-            type="radio"
-            value={!!true}
-            checked={isInPerson}
+            name="locationOrMethod"
+            value={locationOrMethod}
             onChange={handleFormChange}
           />
-          In-Person
         </label>
-      </label>
-      <label>
-        {isInPerson ? "Location" : "Method (call, text, etc.)"}
-        <input
-          name="locationOrMethod"
-          value={locationOrMethod}
-          onChange={handleFormChange}
-        />
-      </label>
-      <label>
-        Description
-        <textarea
-          name="description"
-          value={description}
-          onChange={handleFormChange}
-        />
-      </label>
-      <button className="btn">Update Interaction</button>
-    </form>
+        <label>
+          Description
+          <textarea
+            name="description"
+            value={description}
+            onChange={handleFormChange}
+          />
+        </label>
+        <button className="btn">Update Interaction</button>
+      </form>
+    </>
   );
 }
 

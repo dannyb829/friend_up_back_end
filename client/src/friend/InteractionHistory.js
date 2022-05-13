@@ -32,6 +32,7 @@ function InteractionHistory({
         friend={friend}
         setIsModal={setIsModal}
         setUser={setUser}
+        setModalContent={setModalContent}
       />
     );
     setIsModal(true);
