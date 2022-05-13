@@ -577,7 +577,9 @@ hr {
   padding: 3px;
 }
 
-.form-cont input {
+.form-cont input,
+.form-cont textarea,
+.form-cont select {
   background-color: var(--info-bg);
   border-bottom: 1px solid gray;
   border-top: none;
@@ -585,4 +587,16 @@ hr {
   border-right: none;
   padding: 0.5em;
   margin-left: 1em;
+}
+
+.align-base {
+  align-items: baseline;
+}
+
+.aff:hover {
+  color: rgb(0, 194, 0);
+}
+
+.neg:hover {
+  color: red;
 }

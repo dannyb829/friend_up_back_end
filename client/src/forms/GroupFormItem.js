@@ -78,10 +78,10 @@ function GroupFormItem({ group, setUser, resetModal }) {
               </div>
 
               <div>
-                <button className="link-button">
+                <button className="link-button aff">
                   <FaCheck />
                 </button>
-                <button className="link-button" onClick={handleCancelClick}>
+                <button className="link-button neg" onClick={handleCancelClick}>
                   <GiCancel />
                 </button>
               </div>

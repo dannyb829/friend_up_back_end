@@ -78,63 +78,70 @@ function AddFriendForm({ usergroups, setUser, setIsModal, setModalContent }) {
 
   // Handles form onSubmit event
   const handleSubmit = (e) => {
-    if (first && last && email && phone && meetingMax && communicationMax && meetingReminderInterval && communicationReminderInterval) {
-    e.preventDefault();
+    if (
+      first &&
+      last &&
+      email &&
+      phone &&
+      meetingMax &&
+      communicationMax &&
+      meetingReminderInterval &&
+      communicationReminderInterval
+    ) {
+      e.preventDefault();
 
-    fetch(`/friends`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        first_name: first,
-        last_name: last,
-        email: email,
-        phone_number: parseInt(phone),
-        image_url: image_url,
-        description: description,
-        groups: groups,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-
-        fetch(`/friendships`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            friend_id: data.id,
-            meeting_reminder_interval:
-              meetingReminderInterval * meetingReminderUnit,
-            meeting_max: meetingMax * meetingMaxUnit,
-            communication_reminder_interval:
-              communicationReminderInterval * communicationReminderUnit,
-            communication_max: communicationMax * communicationMaxUnit,
-          }),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            setIsModal(false);
-            setModalContent(null);
-            setUser(data);
-          })
-          .catch((error) => console.log(error.message));
+      fetch(`/friends`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          first_name: first,
+          last_name: last,
+          email: email,
+          phone_number: parseInt(phone),
+          image_url: image_url,
+          description: description,
+          groups: groups,
+        }),
       })
-      .catch((error) => console.log(error.message));
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
 
-    resetForm();
-    window.scrollTo({
-      top: document.body.clientHeight,
-      behavior: 'smooth',
-    })
-    }
-    else
-    alert('Friend not added, incomplete fields')
+          fetch(`/friendships`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              friend_id: data.id,
+              meeting_reminder_interval:
+                meetingReminderInterval * meetingReminderUnit,
+              meeting_max: meetingMax * meetingMaxUnit,
+              communication_reminder_interval:
+                communicationReminderInterval * communicationReminderUnit,
+              communication_max: communicationMax * communicationMaxUnit,
+            }),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              setIsModal(false);
+              setModalContent(null);
+              setUser(data);
+            })
+            .catch((error) => console.log(error.message));
+        })
+        .catch((error) => console.log(error.message));
+
+      resetForm();
+      window.scrollTo({
+        top: document.body.clientHeight,
+        behavior: "smooth",
+      });
+    } else alert("Friend not added, incomplete fields");
   };
 
   // Handles input onChange events: input name attributes must match formData keys
@@ -146,125 +153,153 @@ function AddFriendForm({ usergroups, setUser, setIsModal, setModalContent }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h4>Info</h4>
-      <label>
-        First Name
-        <input name="first" value={first} onChange={handleFormChange}></input>
-      </label>
-      <label>
-        Last Name
-        <input name="last" value={last} onChange={handleFormChange}></input>
-      </label>
-      <label>
-        Email
-        <input name="email" value={email} onChange={handleFormChange}></input>
-      </label>
-      <label>
-        Phone
-        <input name="phone" value={phone} onChange={handleFormChange}></input>
-      </label>
-      <label>
-        Image URL
-        <input
-          name="image_url"
-          value={image_url}
-          onChange={handleFormChange}
-        ></input>
-      </label>
-      <label>
-        Description
-        <textarea
-          name="description"
-          value={description}
-          onChange={handleFormChange}
-        ></textarea>
-      </label>
+    <>
+      <div className="lr-cont">
+        <h3>Add Friend</h3>
+      </div>
       <hr></hr>
-      <h4>Group(s)</h4>
-      <div>{groupCheckboxes}</div>
-      <hr></hr>
-      <h4>Communication Preferences</h4>
-      <label>
-        Remind me to speak with with this friend after not communicating for:
-        <br />
-        <input
-          name="communicationReminderInterval"
-          value={communicationReminderInterval}
-          onChange={handleFormChange}
-          type="number"
-        ></input>
-        <select
-          name="communicationReminderUnit"
-          value={communicationReminderUnit}
-          onChange={handleFormChange}
-        >
-          <option value={1}>days</option>
-          <option value={7}>weeks</option>
-          <option value={365 / 12}>months</option>
-        </select>
-      </label>
-      <label>
-        I should never go this long without speaking to this friend:
-        <br />
-        <input
-          name="communicationMax"
-          value={communicationMax}
-          onChange={handleFormChange}
-          type="number"
-        ></input>
-        <select
-          name="communicationMaxUnit"
-          value={communicationMaxUnit}
-          onChange={handleFormChange}
-        >
-          <option value={1}>days</option>
-          <option value={7}>weeks</option>
-          <option value={365 / 12}>months</option>
-        </select>
-      </label>
-      <hr></hr>
-      <h4>In-Person Preferences</h4>
-      <label>
-        Remind me to meet up with this friend after not seeing them for:
-        <br />
-        <input
-          name="meetingReminderInterval"
-          value={meetingReminderInterval}
-          onChange={handleFormChange}
-          type="number"
-        ></input>
-        <select
-          name="meetingReminderUnit"
-          value={meetingReminderUnit}
-          onChange={handleFormChange}
-        >
-          <option value={1}>days</option>
-          <option value={7}>weeks</option>
-          <option value={365 / 12}>months</option>
-        </select>
-      </label>
-      <label>
-        I should never go this long without seeing this friend in person:
-        <br />
-        <input
-          name="meetingMax"
-          value={meetingMax}
-          onChange={handleFormChange}
-          type="number"
-        ></input>
-        <select
-          name="meetingMaxUnit"
-          value={meetingMaxUnit}
-          onChange={handleFormChange}
-        >
-          <option value={1}>days</option>
-          <option value={7}>weeks</option>
-          <option value={365 / 12}>months</option>
-        </select>
-      </label>
-      <button className="btn">Add Friend</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <div className="form-cont">
+          <h3>Info</h3>
+          <div className="f-col">
+            <label>First Name</label>
+            <input
+              name="first"
+              value={first}
+              onChange={handleFormChange}
+            ></input>
+          </div>
+          <div className="f-col">
+            <label>Last Name</label>
+            <input name="last" value={last} onChange={handleFormChange}></input>
+          </div>
+          <div className="f-col">
+            <label>Email</label>
+            <input
+              name="email"
+              value={email}
+              onChange={handleFormChange}
+            ></input>
+          </div>
+          <div className="f-col">
+            <label>Phone</label>
+            <input
+              name="phone"
+              value={phone}
+              onChange={handleFormChange}
+            ></input>
+          </div>
+          <div className="f-col">
+            <label>Image URL</label>
+            <input
+              name="image_url"
+              value={image_url}
+              onChange={handleFormChange}
+            ></input>
+          </div>
+          <div className="f-col">
+            <label>Description</label>
+            <textarea
+              name="description"
+              value={description}
+              onChange={handleFormChange}
+            ></textarea>
+          </div>
+        </div>
+        <div className="form-cont">
+          <h4>Group(s)</h4>
+          <div>{groupCheckboxes}</div>
+        </div>
+        <div className="form-cont">
+          <h4>Communication Preferences</h4>
+          <label>
+            Remind me to speak with with this friend after not communicating
+            for:
+          </label>
+          <div>
+            <input
+              name="communicationReminderInterval"
+              value={communicationReminderInterval}
+              onChange={handleFormChange}
+              type="number"
+            ></input>
+            <select
+              name="communicationReminderUnit"
+              value={communicationReminderUnit}
+              onChange={handleFormChange}
+            >
+              <option value={1}>days</option>
+              <option value={7}>weeks</option>
+              <option value={365 / 12}>months</option>
+            </select>
+          </div>
+          <label>
+            I should never go this long without speaking to this friend:
+          </label>
+          <div>
+            <input
+              name="communicationMax"
+              value={communicationMax}
+              onChange={handleFormChange}
+              type="number"
+            ></input>
+            <select
+              name="communicationMaxUnit"
+              value={communicationMaxUnit}
+              onChange={handleFormChange}
+            >
+              <option value={1}>days</option>
+              <option value={7}>weeks</option>
+              <option value={365 / 12}>months</option>
+            </select>
+          </div>
+          <h4>In-Person Preferences</h4>
+          <label>
+            Remind me to meet up with this friend after not seeing them for:
+          </label>
+          <div>
+            <input
+              name="meetingReminderInterval"
+              value={meetingReminderInterval}
+              onChange={handleFormChange}
+              type="number"
+            ></input>
+            <select
+              name="meetingReminderUnit"
+              value={meetingReminderUnit}
+              onChange={handleFormChange}
+            >
+              <option value={1}>days</option>
+              <option value={7}>weeks</option>
+              <option value={365 / 12}>months</option>
+            </select>
+          </div>
+          <label>
+            I should never go this long without seeing this friend in person:
+          </label>
+          <div>
+            <input
+              name="meetingMax"
+              value={meetingMax}
+              onChange={handleFormChange}
+              type="number"
+            ></input>
+            <select
+              name="meetingMaxUnit"
+              value={meetingMaxUnit}
+              onChange={handleFormChange}
+            >
+              <option value={1}>days</option>
+              <option value={7}>weeks</option>
+              <option value={365 / 12}>months</option>
+            </select>
+          </div>
+        </div>
+        <div className="f-center">
+          <button className="btn">Add Friend</button>
+        </div>
+      </form>
+    </>
   );
 }
 

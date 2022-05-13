@@ -40,7 +40,7 @@ function EditGroupsForm({ user, setUser, setModalContent, setIsModal }) {
 
   return (
     <div>
-      <div className="lr-cont">
+      <div className="lr-cont align-base">
         <h3>Your Groups:</h3>
         <button
           className="btn"
