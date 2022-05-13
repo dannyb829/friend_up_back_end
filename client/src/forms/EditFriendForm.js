@@ -46,7 +46,6 @@ function EditFriendForm({
     communicationMaxUnit: 1,
     groups: friendship.group_names,
   };
-  console.log("in edit form this is friend", friendship);
   // State and Variable Declaration
   const [formData, setFormData] = useState(currentValues);
   const {
@@ -77,8 +76,6 @@ function EditFriendForm({
   const nav = useNavigate();
 
   const handleGroupChange = ({ target: { name, checked } }) => {
-    console.log("name:", name);
-    console.log("checked:", checked);
     const newValue = checked
       ? [...groups, name]
       : groups.filter((group) => group !== name);
@@ -87,7 +84,6 @@ function EditFriendForm({
 
     setFormData(updatedFormData);
   };
-  console.log(groups);
   const groupCheckboxes = userGroups.map((group) => {
     return (
       <label key={group.id}>
@@ -133,7 +129,6 @@ function EditFriendForm({
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setUser(data);
         setIsModal(false);
         setModalContent(null);
