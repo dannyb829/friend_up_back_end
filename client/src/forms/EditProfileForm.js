@@ -60,8 +60,11 @@ function EditProfileForm({ user, setUser, setIsModal, setModalContent }) {
 
   return (
     <>
-      <h3>Edit Profile</h3>
-      <button onClick={onChangePasswordClick}>change password</button>
+      <div className="lr-cont">
+        <h3>Edit Profile</h3>
+        <button onClick={onChangePasswordClick}>change password</button>
+      </div>
+      <hr></hr>
       <form onSubmit={handleSubmit}>
         <label>
           First Name

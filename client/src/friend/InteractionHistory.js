@@ -40,8 +40,10 @@ function InteractionHistory({
 
   return (
     <div className="content-container page-container">
-      <h3>History</h3>
-      <button onClick={handleAddInteractionClick}>➕ Add Interaction</button>
+      <div className="lr-cont">
+        <h3>History</h3>
+        <button onClick={handleAddInteractionClick}>➕ Add Interaction</button>
+      </div>
       <InteractionFilterForm
         typeFilter={typeFilter}
         setTypeFilter={setTypeFilter}

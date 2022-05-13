@@ -41,22 +41,24 @@ function FriendFilterForm({ formData, setFormData, user }) {
 
   return (
     <form>
-      <SearchBar
-        name={"searchInput"}
-        onChange={handleFormChange}
-        searchInput={searchInput}
-      />
-      <label>
-        Group:
-        <select
-          name="groupFilter"
-          value={groupFilter}
+      <div className="lr-cont">
+        <SearchBar
+          name={"searchInput"}
           onChange={handleFormChange}
-        >
-          <option value={""}>All</option>
-          {groupOptions}
-        </select>
-      </label>
+          searchInput={searchInput}
+        />
+        <label>
+          Group:
+          <select
+            name="groupFilter"
+            value={groupFilter}
+            onChange={handleFormChange}
+          >
+            <option value={""}>All</option>
+            {groupOptions}
+          </select>
+        </label>
+      </div>
       Status:
       <label>
         <input

@@ -34,13 +34,13 @@ function NewGroupForm({
   };
 
   return (
-    <>
+    <div>
       <form onSubmit={handleSubmit}>
         <input value={newGroupInput} onChange={onNewGroupInputChange} />
         <button>submit</button>
       </form>
       <button onClick={toggleAddingGroup}>cancel</button>
-    </>
+    </div>
   );
 }
 

@@ -12,7 +12,7 @@ function Header({ setUser }) {
   }
 
   return (
-    <div className="header">
+    <div className="header lr-cont">
       <Link to="/">
         <span>friendup</span>
       </Link>

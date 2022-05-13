@@ -7,7 +7,7 @@
   --header-listed-height: calc(
     var(--header-height) - (2 * var(--header-padding))
   );
-  --modal-padding: 2em;
+  --modal-padding: 4em;
 }
 
 /* COLOR VARIABLES -------------------------------------------------- */
@@ -81,11 +81,9 @@ code {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.3em;
-  float: left;
 }
 
 .header button {
-  float: right;
   margin-right: 1em;
   background-color: var(--header-font-color);
   border-radius: 0.5em;
@@ -97,6 +95,12 @@ code {
 }
 
 /* PAGE CONTENT GENERAL --------------------------------------------------------- */
+
+.lr-cont {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
 
 .page-centered {
   position: fixed;
@@ -391,4 +395,10 @@ hr {
   align-items: center;
   width: 20em;
   /* transition-duration: 0.2s; */
+}
+
+/* POPUP --------------------------------------------------------- */
+
+.user-info {
+  width: 40em;
 }

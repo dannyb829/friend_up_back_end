@@ -3,18 +3,7 @@ import Avatar from "../structure/Avatar";
 import EditProfileForm from "../forms/EditProfileForm";
 
 function UserInfo({ user, setUser, setIsModal, setModalContent }) {
-  const {
-    first_name = "",
-    last_name = "",
-    image_url = "",
-    friendships = [],
-    friends_needing_attention = 0,
-  } = user;
-
-  const friendupScore = parseInt(
-    ((friendships.length - friends_needing_attention) / friendships.length) *
-      100
-  );
+  const { first_name = "", last_name = "", image_url = "" } = user;
 
   const handleEditProfileClick = () => {
     setModalContent(
@@ -29,25 +18,19 @@ function UserInfo({ user, setUser, setIsModal, setModalContent }) {
   };
 
   return (
-    <div className="content-container page-container">
-      <h3>
-        {first_name} {last_name}
-      </h3>
-      <button onClick={handleEditProfileClick}>edit profile</button>
+    <div className="content-container page-container user-info">
+      <div className="lr-cont">
+        <h3 className="f-l">
+          {first_name} {last_name}
+        </h3>
+        <button className="f-r" onClick={handleEditProfileClick}>
+          edit profile
+        </button>
+      </div>
       <hr />
-      <Avatar image_url={image_url} />
-      <span>
-        <b>Friendup score:</b>
-      </span>
-      <span>{friendupScore}%</span>
-      <span>
-        {" "}
-        {friendships.length} <b>friendships</b>
-      </span>
-      <span>
-        {" "}
-        {friends_needing_attention} <b>need attention</b>
-      </span>
+      <div>
+        <Avatar image_url={image_url} />
+      </div>
     </div>
   );
 }

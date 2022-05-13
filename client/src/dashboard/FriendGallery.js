@@ -134,9 +134,13 @@ function FriendGallery({
 
   return (
     <div className="content-container page-container">
-      <h3>Friends</h3>
-      <button onClick={handleAddFriendClick}>➕ Add Friend</button>
-      <button onClick={handleEditGroupsClick}>✍️ Edit Groups</button>
+      <div className="lr-cont">
+        <h3>Friends</h3>
+        <div>
+          <button onClick={handleAddFriendClick}>➕ Add Friend</button>
+          <button onClick={handleEditGroupsClick}>✍️ Edit Groups</button>
+        </div>
+      </div>
       <FriendFilterForm
         formData={filterData}
         setFormData={setFilterData}

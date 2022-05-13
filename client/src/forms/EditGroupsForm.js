@@ -39,8 +39,14 @@ function EditGroupsForm({ user, setUser, setModalContent, setIsModal }) {
 
   return (
     <div>
-      <h3>Your Groups:</h3>
-      {isAddingGroup ? (
+      <div className="lr-cont">
+        <h3>Your Groups:</h3>
+        <button onClick={toggleAddingGroup} disabled={isAddingGroup}>
+          ➕ Add Group
+        </button>
+      </div>
+      <hr />
+      {isAddingGroup && (
         <NewGroupForm
           newGroupInput={newGroupInput}
           onNewGroupInputChange={onNewGroupInputChange}
@@ -48,10 +54,7 @@ function EditGroupsForm({ user, setUser, setModalContent, setIsModal }) {
           setUser={setUser}
           resetModal={resetModal}
         />
-      ) : (
-        <button onClick={toggleAddingGroup}>➕ Add Group</button>
       )}
-      <hr />
       {groupsList}
     </div>
   );

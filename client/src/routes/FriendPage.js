@@ -3,26 +3,27 @@ import Alert from "../friend/Alert";
 import FriendProfile from "../friend/FriendProfile";
 import InteractionHistory from "../friend/InteractionHistory";
 import { useParams } from "react-router-dom";
+import LoadingPage from "../utility/LoadingPage";
+import Error404 from "../utility/Error404";
 
 function FriendPage({
   userInteractions,
-  friendships = [],
+  friendships,
   setIsModal,
   setModalContent,
   setUser,
   groups,
 }) {
   const { id } = useParams();
-  
-  // const [friend ,setFriend] = useState({})
 
-  const friendship =
-    friendships.length > 0
-      ? friendships.find((f) => f.friend.id === parseInt(id))
-      : null;
+  if (!friendships || friendships.length === 0) {
+    return <LoadingPage />;
+  }
+
+  const friendship = friendships.find((f) => f.friend.id === parseInt(id));
 
   if (!friendship) {
-    return <div>Loading...</div>;
+    return <Error404 />;
   }
 
   function alertMessage(status, mode) {
