@@ -296,7 +296,7 @@ function AddFriendForm({ usergroups, setUser, setIsModal, setModalContent }) {
           </div>
         </div>
         <div className="f-center">
-          <button className="btn">Add Friend</button>
+          <button className="btn">Submit</button>
         </div>
       </form>
     </>

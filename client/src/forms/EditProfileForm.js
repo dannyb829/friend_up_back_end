@@ -93,7 +93,7 @@ function EditProfileForm({ user, setUser, setIsModal, setModalContent }) {
           />
         </div>
         <div className="f-center">
-          <button className="btn">submit</button>
+          <button className="btn">Submit</button>
         </div>
       </form>
     </>

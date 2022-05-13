@@ -316,7 +316,7 @@ function EditFriendForm({
           </div>
         </div>
         <div className="f-center">
-          <button className="btn">Update</button>
+          <button className="btn">Submit</button>
         </div>
         <div className="f-center remove">
           <button className="link-button neg" onClick={handleDeleteClick}>
