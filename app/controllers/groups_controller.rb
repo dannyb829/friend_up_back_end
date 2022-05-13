@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :find_group, only: %i[update]
+  before_action :find_group, only: %i[update destroy]
 
   def index
     groups = Group.where(user_id: session[:user_id])
@@ -7,9 +7,8 @@ class GroupsController < ApplicationController
   end
 
   def create
-    group =
-      Group.create!(user_id: session[:user_id], group_name: params[:group_name])
-    render json: group
+    group = @current_user.groups.create!(group_params)
+    render json: @current_user, status: :created
   end
 
   # PATCH /groups/:id
@@ -18,9 +17,11 @@ class GroupsController < ApplicationController
     render json: @current_user, status: :accepted
   end
 
+  # DELETE /groups/:id
   def destroy
-    Group.find(params[:id]).destroy
-    head :no_content
+    @group.destroy
+
+    render json: @current_user, status: :accepted
   end
 
   private

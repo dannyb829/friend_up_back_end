@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import UserInfo from "../dashboard/UserInfo";
 import EditGroupsForm from "./EditGroupsForm";
 
-function GroupFormItem({ group, setUser, user, setModalContent, setIsModal }) {
+function GroupFormItem({ group, setUser, resetModal }) {
   const [isEditing, setIsEditing] = useState(false);
   const [input, setInput] = useState(group.group_name);
 
@@ -10,6 +10,11 @@ function GroupFormItem({ group, setUser, user, setModalContent, setIsModal }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (input === "") {
+      return null;
+    }
+
     fetch(`/groups/${group.id}`, {
       method: "PATCH",
       headers: {
@@ -29,17 +34,6 @@ function GroupFormItem({ group, setUser, user, setModalContent, setIsModal }) {
       .catch((error) => console.log(error.message));
   };
 
-  const resetModal = (updatedUser) => {
-    setModalContent(
-      <EditGroupsForm
-        user={updatedUser}
-        setUser={setUser}
-        setModalContent={setModalContent}
-        setIsModal={setIsModal}
-      />
-    );
-  };
-
   const onInputChange = (e) => {
     setInput(e.target.value);
   };
@@ -50,17 +44,35 @@ function GroupFormItem({ group, setUser, user, setModalContent, setIsModal }) {
     );
 
     if (confirmed) {
-      console.log("group to be deleted");
+      fetch(`/groups/${group.id}`, {
+        method: "DELETE",
+      })
+        .then((res) => {
+          return res.ok ? res.json() : alert("something went wrong");
+        })
+        .then((data) => {
+          setUser(data);
+          resetModal(data);
+        })
+        .catch((error) => alert(error.message));
     }
+  };
+
+  const handleCancelClick = () => {
+    setInput("");
+    setIsEditing(false);
   };
 
   return (
     <div>
       {isEditing ? (
-        <form onSubmit={handleSubmit}>
-          <input value={input} onChange={onInputChange} />
-          <button>✔️</button>
-        </form>
+        <>
+          <form onSubmit={handleSubmit}>
+            <input value={input} onChange={onInputChange} />
+            <button>✔️</button>
+          </form>
+          <button onClick={handleCancelClick}>cancel</button>
+        </>
       ) : (
         <>
           <span>{group.group_name}</span>
