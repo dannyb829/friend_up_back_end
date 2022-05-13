@@ -17,6 +17,12 @@ class UsersController < ApplicationController
     end
   end
 
+  # PATCH /users/:id
+  def update
+    @current_user.update!(user_params)
+    render json: @current_user, status: :accepted
+  end
+
   private
 
   def user_params
@@ -24,6 +30,8 @@ class UsersController < ApplicationController
       :first_name,
       :last_name,
       :email,
+      :phone_number,
+      :image_url,
       :password,
       :password_confirmation
     )

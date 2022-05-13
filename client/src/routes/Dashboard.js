@@ -7,7 +7,12 @@ import FriendGallery from "../dashboard/FriendGallery";
 function Dashboard({ user, setIsModal, setModalContent, setUser }) {
   return (
     <div>
-      <UserInfo user={user} />
+      <UserInfo
+        user={user}
+        setUser={setUser}
+        setIsModal={setIsModal}
+        setModalContent={setModalContent}
+      />
       <UpcomingInfo />
       <FriendGallery
         friendships={user.friendships}

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/auth', to: 'users#show'
   get '/users/:id', to: 'users#show'
+  patch '/users', to: 'users#update'
 
   resources :group_friends
   resources :groups, only: %i[index create update destroy]

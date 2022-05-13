@@ -5,6 +5,8 @@ class UserSerializer < ActiveModel::Serializer
              :image_url,
              :friends_needing_attention,
              :interactions,
+             :email,
+             :phone_number,
              :groups
 
   has_many :friendships
