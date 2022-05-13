@@ -13,7 +13,7 @@ function FriendPage({
   groups,
 }) {
   const { id } = useParams();
-
+  
   // const [friend ,setFriend] = useState({})
 
   const friendship =

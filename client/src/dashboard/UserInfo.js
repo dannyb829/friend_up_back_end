@@ -22,10 +22,10 @@ function UserInfo({ user }) {
       <a href="#">edit profile</a>
       <hr />
       <Avatar image_url={image_url} />
-      <span>friendup score:</span>
+      <span><b>Friendup score:</b></span>
       <span>{friendupScore}%</span>
-      <span>{friendships.length} friendships</span>
-      <span>{friends_needing_attention} need attention</span>
+      <span>  {friendships.length} <b>friendships</b></span>
+      <span>  {friends_needing_attention} <b>need attention</b></span>
     </div>
   );
 }

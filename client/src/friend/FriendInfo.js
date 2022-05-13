@@ -4,14 +4,14 @@ function FriendInfo({ friend }) {
   const { first_name, last_name, description, email, phone_number } = friend;
 
   return (
-    <div>
+    <div className="content-container">
       <span>
-        {first_name} {last_name}
-      </span>
-      <span>{description}</span>
+      <b>Name:</b>  {first_name} {last_name}
+      </span><br></br>
+      <span><b>Info:</b> {description}</span>
       <hr />
-      <span>{email}</span>
-      <span>{phone_number}</span>
+      <span><b>Email:</b> {email}</span><br></br>
+      <span><b>Phone:</b> {phone_number}</span>
     </div>
   );
 }
