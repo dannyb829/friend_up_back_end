@@ -1,15 +1,28 @@
 import React, { useState, useEffect } from "react";
+import { formatDistance } from "date-fns";
 
-function LastContactControl({friendship}) {
-  const { days_since_communication, days_since_meeting } = friendship
+function LastContactControl({ friendship }) {
+  const {
+    last_communication_date,
+    last_meeting_date,
+    communication_status,
+    meeting_status,
+  } = friendship;
+
+  const communicationDt = Date.parse(last_communication_date);
+  const meetingDt = Date.parse(last_meeting_date);
 
   return (
     <div>
       <span>🗣</span>
-      <span>{days_since_communication} days ago</span>
+      <span className={communication_status + "-font"}>
+        {formatDistance(communicationDt, new Date(), { addSuffix: true })}
+      </span>
       <button>message</button>
       <span>📍</span>
-      <span>{days_since_meeting} days ago</span>
+      <span className={meeting_status + "-font"}>
+        {formatDistance(meetingDt, new Date(), { addSuffix: true })}
+      </span>
       <button>schedule</button>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { format, formatDistance, subDays } from "date-fns";
+import { format, formatDistance } from "date-fns";
 
 function InteractionListItem({ interaction }) {
   const {

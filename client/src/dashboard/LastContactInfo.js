@@ -1,22 +1,27 @@
 import React, { useState, useEffect } from "react";
+import { formatDistance } from "date-fns";
 
 function LastContactInfo({ friendship }) {
   const {
-    days_since_communication,
-    days_since_meeting,
+    last_communication_date,
+    last_meeting_date,
     communication_status,
     meeting_status,
   } = friendship;
+
+  const communicationDt = Date.parse(last_communication_date);
+  const meetingDt = Date.parse(last_meeting_date);
+
   return (
     <div>
       <span>🗣</span>
       <span className={communication_status + "-font"}>
-        {days_since_communication} days ago
+        {formatDistance(communicationDt, new Date(), { addSuffix: true })}
       </span>
       <hr></hr>
       <span>📍</span>
       <span className={meeting_status + "-font"}>
-        {days_since_meeting} days ago
+        {formatDistance(meetingDt, new Date(), { addSuffix: true })}
       </span>
     </div>
   );
