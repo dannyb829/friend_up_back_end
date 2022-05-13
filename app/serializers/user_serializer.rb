@@ -4,10 +4,16 @@ class UserSerializer < ActiveModel::Serializer
              :last_name,
              :image_url,
              :friends_needing_attention,
-             :interactions
+             :interactions,
+             :groups
 
   has_many :friendships
-  has_many :groups
+
+  # has_many :groups
+
+  def groups
+    object.groups.order(:group_name)
+  end
 
   def interactions
     object.interactions.order(date: :desc)
