@@ -68,58 +68,63 @@ function AddInteractionForm({ friend, setIsModal, setModalContent, setUser }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Log a New Interaction with {friend["first_name"]}</h3>
-      <label>
-        Date
-        <input
-          type="date"
-          name="date"
-          value={date}
-          onChange={handleFormChange}
-        />
-      </label>
-      <label>
-        Type
-        <label>
+    <>
+      <div className="lr-cont">
+        <h3>Log a New Interaction with {friend["first_name"]}</h3>
+      </div>
+      <hr></hr>
+      <form className="form-cont" onSubmit={handleSubmit}>
+        <div className="f-col">
+          <label>Date</label>
           <input
-            name="isInPerson"
-            type="radio"
-            value={!!false}
-            checked={!isInPerson}
+            type="date"
+            name="date"
+            value={date}
             onChange={handleFormChange}
           />
-          Communication
-        </label>
-        <label>
+        </div>
+        <div className="f-col">
+          <label>Type</label>
+          <div>
+            <input
+              name="isInPerson"
+              type="radio"
+              value={!!false}
+              checked={!isInPerson}
+              onChange={handleFormChange}
+            />
+            <label>Communication</label>
+            <input
+              name="isInPerson"
+              type="radio"
+              value={!!true}
+              checked={isInPerson}
+              onChange={handleFormChange}
+            />
+            <label>In-Person</label>
+          </div>
+        </div>
+        <div className="f-col">
+          <label>{isInPerson ? "Location" : "Method (call, text, etc.)"}</label>
           <input
-            name="isInPerson"
-            type="radio"
-            value={!!true}
-            checked={isInPerson}
+            name="locationOrMethod"
+            value={locationOrMethod}
             onChange={handleFormChange}
           />
-          In-Person
-        </label>
-      </label>
-      <label>
-        {isInPerson ? "Location" : "Method (call, text, etc.)"}
-        <input
-          name="locationOrMethod"
-          value={locationOrMethod}
-          onChange={handleFormChange}
-        />
-      </label>
-      <label>
-        Description
-        <textarea
-          name="description"
-          value={description}
-          onChange={handleFormChange}
-        />
-      </label>
-      <button className="btn">Add Interaction</button>
-    </form>
+        </div>
+        <div className="f-col">
+          <label>Description</label>
+          <textarea
+            name="description"
+            value={description}
+            onChange={handleFormChange}
+          />
+        </div>
+        <div className="f-center">
+          <button className="btn">Add Interaction</button>
+        </div>
+      </form>
+    </>
   );
 }
 
