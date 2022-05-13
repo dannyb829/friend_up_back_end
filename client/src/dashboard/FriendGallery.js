@@ -21,7 +21,6 @@ function FriendGallery({
   user,
   setUser,
 }) {
-  console.log("gallery user:", user);
   const [filterData, setFilterData] = useState(defaultFilter);
   const {
     searchInput,

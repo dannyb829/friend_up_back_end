@@ -18,8 +18,6 @@ function App() {
 
   const navigate = useNavigate();
 
-  console.log("app user:", user);
-
   useEffect(() => {
     fetch("/auth").then((r) =>
       r.ok

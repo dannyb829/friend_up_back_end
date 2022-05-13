@@ -5,7 +5,6 @@ import UpcomingInfo from "../dashboard/UpcomingInfo";
 import FriendGallery from "../dashboard/FriendGallery";
 
 function Dashboard({ user, setIsModal, setModalContent, setUser }) {
-  console.log("dashboard user:", user);
   return (
     <div>
       <UserInfo user={user} />

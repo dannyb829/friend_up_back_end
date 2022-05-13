@@ -9,9 +9,7 @@ function GroupFormItem({ group, setUser, user, setModalContent, setIsModal }) {
   // console.log(user);
 
   const handleSubmit = (e) => {
-    console.log(group);
     e.preventDefault();
-    console.log("update group name in db here");
     fetch(`/groups/${group.id}`, {
       method: "PATCH",
       headers: {
@@ -24,7 +22,6 @@ function GroupFormItem({ group, setUser, user, setModalContent, setIsModal }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setUser(data);
         setIsEditing(false);
         resetModal(data);
