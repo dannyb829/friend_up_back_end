@@ -44,9 +44,8 @@ function EditFriendForm({
     communicationMax: friendship.communication_max,
     communicationReminderUnit: 1,
     communicationMaxUnit: 1,
-    groups: friendship.groups,
+    groups: friendship.group_names,
   };
-  console.log("in edit form this is friend", friendship);
   // State and Variable Declaration
   const [formData, setFormData] = useState(currentValues);
   const {
@@ -79,20 +78,19 @@ function EditFriendForm({
   const handleGroupChange = ({ target: { name, checked } }) => {
     const newValue = checked
       ? [...groups, name]
-      : groups.filter((group) => group.group_name !== name);
+      : groups.filter((group) => group !== name);
 
     const updatedFormData = { ...formData, groups: newValue };
 
     setFormData(updatedFormData);
   };
-  console.log(groups);
   const groupCheckboxes = userGroups.map((group) => {
     return (
       <label key={group.id}>
         <input
           name={group.group_name}
           type="checkbox"
-          checked={groups.find((g) => g.group_name === group.group_name)}
+          checked={groups.includes(group.group_name)}
           onChange={handleGroupChange}
         />
         {group.group_name}
@@ -131,7 +129,6 @@ function EditFriendForm({
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setUser(data);
         setIsModal(false);
         setModalContent(null);

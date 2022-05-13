@@ -8,12 +8,7 @@ const defaultForm = {
   isInPerson: false,
 };
 
-function AddInteractionForm({
-  friendId,
-  setIsModal,
-  setModalContent,
-  setUser,
-}) {
+function AddInteractionForm({ friend, setIsModal, setModalContent, setUser }) {
   // State and Variable Declaration
   const [formData, setFormData] = useState(defaultForm);
   const { date, locationOrMethod, description, isInPerson } = formData;
@@ -32,7 +27,7 @@ function AddInteractionForm({
         Accept: "application/json",
       },
       body: JSON.stringify({
-        friend_id: friendId,
+        friend_id: friend.id,
         "in_person?": isInPerson,
         date: date,
         location_or_method: locationOrMethod,
@@ -73,7 +68,7 @@ function AddInteractionForm({
 
   return (
     <form onSubmit={handleSubmit}>
-      <h3>Log a New Interaction</h3>
+      <h3>Log a New Interaction with {friend["first_name"]}</h3>
       <label>
         Date
         <input

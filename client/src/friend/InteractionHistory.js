@@ -5,7 +5,7 @@ import AddInteractionForm from "../forms/AddInteractionForm";
 
 function InteractionHistory({
   userInteractions,
-  friendId,
+  friend,
   setIsModal,
   setModalContent,
   setUser,
@@ -29,7 +29,7 @@ function InteractionHistory({
   const handleAddInteractionClick = () => {
     setModalContent(
       <AddInteractionForm
-        friendId={friendId}
+        friend={friend}
         setIsModal={setIsModal}
         setModalContent={setModalContent}
         setUser={setUser}
@@ -49,7 +49,7 @@ function InteractionHistory({
       <hr />
       <InteractionList
         userInteractions={interactionsToDisplay}
-        friendId={friendId}
+        friendId={friend.id}
       />
     </div>
   );

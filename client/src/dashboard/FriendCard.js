@@ -39,7 +39,7 @@ function FriendCard({
   const handleAddInteractionClick = () => {
     setModalContent(
       <AddInteractionForm
-        friendId={friendship.friend.id}
+        friend={friendship.friend}
         setIsModal={setIsModal}
         setModalContent={setModalContent}
         setUser={setUser}

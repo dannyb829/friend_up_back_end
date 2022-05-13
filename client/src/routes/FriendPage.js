@@ -50,7 +50,7 @@ function FriendPage({
       />
       <InteractionHistory
         userInteractions={userInteractions}
-        friendId={friendship.friend.id}
+        friend={friendship.friend}
         setIsModal={setIsModal}
         setModalContent={setModalContent}
         setUser={setUser}

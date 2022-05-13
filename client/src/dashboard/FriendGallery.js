@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FriendFilterForm from "../forms/FriendFilterForm";
 import FriendList from "./FriendList";
 import AddFriendForm from "../forms/AddFriendForm";
+import EditGroupsForm from "../forms/EditGroupsForm";
 
 // Default Filter Values
 const defaultFilter = {
@@ -17,7 +18,7 @@ function FriendGallery({
   friendships,
   setIsModal,
   setModalContent,
-  groups,
+  user,
   setUser,
 }) {
   const [filterData, setFilterData] = useState(defaultFilter);
@@ -110,10 +111,22 @@ function FriendGallery({
   const handleAddFriendClick = () => {
     setModalContent(
       <AddFriendForm
-        usergroups={groups}
+        usergroups={user.groups}
         setUser={setUser}
         setIsModal={setIsModal}
         setModalContent={setModalContent}
+      />
+    );
+    setIsModal(true);
+  };
+
+  const handleEditGroupsClick = () => {
+    setModalContent(
+      <EditGroupsForm
+        user={user}
+        setUser={setUser}
+        setModalContent={setModalContent}
+        setIsModal={setIsModal}
       />
     );
     setIsModal(true);
@@ -123,15 +136,19 @@ function FriendGallery({
     <div className="content-container page-container">
       <h3>Friends</h3>
       <button onClick={handleAddFriendClick}>➕ Add Friend</button>
-      <button>✍️ Edit Groups</button>
-      <FriendFilterForm formData={filterData} setFormData={setFilterData} />
+      <button onClick={handleEditGroupsClick}>✍️ Edit Groups</button>
+      <FriendFilterForm
+        formData={filterData}
+        setFormData={setFilterData}
+        user={user}
+      />
       <hr />
       <FriendList
         friendships={friendshipsToDisplay}
         setIsModal={setIsModal}
         setModalContent={setModalContent}
         setUser={setUser}
-        groups={groups}
+        groups={user.groups}
       />
     </div>
   );

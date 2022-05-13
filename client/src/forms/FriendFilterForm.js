@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "./SearchBar";
 import { Checkbox, Radio } from "react-btn-checkbox";
 
-function FriendFilterForm({ formData, setFormData }) {
+function FriendFilterForm({ formData, setFormData, user }) {
   const {
     searchInput,
     groupFilter,
@@ -25,6 +25,14 @@ function FriendFilterForm({ formData, setFormData }) {
     setFormData(updatedFormData);
   };
 
+  const groupOptions = user.groups.map((group) => {
+    return (
+      <option key={group.id} value={group.group_name}>
+        {group.group_name}
+      </option>
+    );
+  });
+
   const statusOptions = {
     poor: false,
     warning: false,
@@ -46,8 +54,7 @@ function FriendFilterForm({ formData, setFormData }) {
           onChange={handleFormChange}
         >
           <option value={""}>All</option>
-          <option value={"two"}>two</option>
-          <option value={"three"}>three</option>
+          {groupOptions}
         </select>
       </label>
       Status:
