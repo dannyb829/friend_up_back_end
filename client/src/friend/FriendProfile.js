@@ -33,7 +33,6 @@ function FriendProfile({
       <button onClick={handleEditFriendClick}>edit</button>
     </>
   );
-  console.log(friendship.group_names, "friend profile");
   return (
     <div className="content-container page-container profile">
       <Avatar image_url={image_url} />

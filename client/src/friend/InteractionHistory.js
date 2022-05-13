@@ -31,7 +31,6 @@ function InteractionHistory({
       <AddInteractionForm
         friend={friend}
         setIsModal={setIsModal}
-        setModalContent={setModalContent}
         setUser={setUser}
       />
     );
@@ -54,6 +53,10 @@ function InteractionHistory({
       <InteractionList
         userInteractions={interactionsToDisplay}
         friendId={friend.id}
+        setUser={setUser}
+        setIsModal={setIsModal}
+        setModalContent={setModalContent}
+        friend={friend}
       />
     </div>
   );

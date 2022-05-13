@@ -1,34 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { format } from "date-fns";
 
-// Default Form Values
-const defaultForm = {
-  date: format(Date.parse(new Date()), "yyyy-MM-dd"),
-  locationOrMethod: "",
-  description: "",
-  isInPerson: false,
-};
+function EditInteractionForm({
+  interaction,
+  friend,
+  setIsModal,
+  setModalContent,
+  setUser,
+}) {
+  // Default Form Values
+  const defaultForm = {
+    date: format(Date.parse(interaction.date.slice(0, -1)), "yyyy-MM-dd"),
+    locationOrMethod: interaction.location_or_method,
+    description: interaction.description,
+    isInPerson: interaction["in_person?"],
+  };
 
-function AddInteractionForm({ friend, setIsModal, setModalContent, setUser }) {
   // State and Variable Declaration
   const [formData, setFormData] = useState(defaultForm);
   const { date, locationOrMethod, description, isInPerson } = formData;
-
-  // Reset formData to default values
-  const resetForm = () => setFormData(defaultForm);
+  console.log("interaction.date:", interaction.date.slice(0, -1));
+  console.log("date:", date);
 
   // Handles form onSubmit event
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`/interactions`, {
-      method: "POST",
+    console.log("date to send:", date);
+
+    fetch(`/interactions/${interaction.id}`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
       body: JSON.stringify({
-        friend_id: friend.id,
         "in_person?": isInPerson,
         date: date,
         location_or_method: locationOrMethod,
@@ -45,8 +51,6 @@ function AddInteractionForm({ friend, setIsModal, setModalContent, setUser }) {
       })
       .catch((error) => console.log(error.message));
     // do form submission actions here
-
-    resetForm();
   };
 
   // Handles input onChange events: input name attributes must match formData keys
@@ -54,6 +58,8 @@ function AddInteractionForm({ friend, setIsModal, setModalContent, setUser }) {
     target,
     target: { type, name, value, checked },
   }) => {
+    console.log("edit val:", value);
+
     const newValue =
       type === "checkbox"
         ? checked
@@ -69,7 +75,7 @@ function AddInteractionForm({ friend, setIsModal, setModalContent, setUser }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h3>Log a New Interaction with {friend["first_name"]}</h3>
+      <h3>Edit this Interaction with {friend["first_name"]}</h3>
       <label>
         Date
         <input
@@ -118,9 +124,9 @@ function AddInteractionForm({ friend, setIsModal, setModalContent, setUser }) {
           onChange={handleFormChange}
         />
       </label>
-      <button className="btn">Add Interaction</button>
+      <button className="btn">Update Interaction</button>
     </form>
   );
 }
 
-export default AddInteractionForm;
+export default EditInteractionForm;

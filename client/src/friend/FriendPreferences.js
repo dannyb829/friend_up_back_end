@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LastContactControl from "./LastContactControl";
+import uuid from "react-uuid";
 
 function FriendPreferences({ friendship = {} }) {
   return (
@@ -23,7 +24,7 @@ function FriendPreferences({ friendship = {} }) {
       <div className="info-container">
         <ul>
           {friendship.group_names.map((group) => (
-            <li>{group}</li>
+            <li key={uuid()}>{group}</li>
           ))}
         </ul>
       </div>

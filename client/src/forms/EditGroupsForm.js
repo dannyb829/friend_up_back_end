@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import GroupFormItem from "./GroupFormItem";
 import NewGroupForm from "./NewGroupForm";
+import { ImPlus } from "react-icons/im";
 
 function EditGroupsForm({ user, setUser, setModalContent, setIsModal }) {
   const [isAddingGroup, setIsAddingGroup] = useState(false);
@@ -46,7 +47,7 @@ function EditGroupsForm({ user, setUser, setModalContent, setIsModal }) {
           onClick={toggleAddingGroup}
           disabled={isAddingGroup}
         >
-          ➕ Add Group
+          <ImPlus /> Add Group
         </button>
       </div>
       <hr />

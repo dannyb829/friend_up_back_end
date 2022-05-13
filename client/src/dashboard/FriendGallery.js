@@ -3,6 +3,8 @@ import FriendFilterForm from "../forms/FriendFilterForm";
 import FriendList from "./FriendList";
 import AddFriendForm from "../forms/AddFriendForm";
 import EditGroupsForm from "../forms/EditGroupsForm";
+import { FaEdit } from "react-icons/fa";
+import { ImPlus } from "react-icons/im";
 
 // Default Filter Values
 const defaultFilter = {
@@ -138,10 +140,10 @@ function FriendGallery({
         <h3>Friends</h3>
         <div>
           <button className="btn" onClick={handleAddFriendClick}>
-            ➕ Add Friend
+            <ImPlus /> Add Friend
           </button>
           <button className="btn" onClick={handleEditGroupsClick}>
-            ✍️ Edit Groups
+            <FaEdit /> Edit Groups
           </button>
         </div>
       </div>

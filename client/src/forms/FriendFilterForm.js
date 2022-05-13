@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "./SearchBar";
 import { Checkbox, Radio } from "react-btn-checkbox";
+import { ImBubbles4 } from "react-icons/im";
+import { FaPeopleArrows } from "react-icons/fa";
 
 function FriendFilterForm({ formData, setFormData, user }) {
   const {
@@ -99,7 +101,7 @@ function FriendFilterForm({ formData, setFormData, user }) {
           checked={typeFilter === "communicate"}
           onChange={handleFormChange}
         />
-        🗣
+        <ImBubbles4 />
       </label>
       <label>
         <input
@@ -109,7 +111,7 @@ function FriendFilterForm({ formData, setFormData, user }) {
           checked={typeFilter === "visit"}
           onChange={handleFormChange}
         />
-        📍
+        <FaPeopleArrows />
       </label>
       <label>
         <input

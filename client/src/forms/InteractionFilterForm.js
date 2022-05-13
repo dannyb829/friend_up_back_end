@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { ImBubbles4 } from "react-icons/im";
+import { FaPeopleArrows } from "react-icons/fa";
 
 function InteractionFilterForm({ typeFilter, setTypeFilter }) {
   // State and Variable Declaration
@@ -19,7 +21,7 @@ function InteractionFilterForm({ typeFilter, setTypeFilter }) {
           checked={typeFilter === "communicate"}
           onChange={handleFilterChange}
         />
-        🗣
+        <ImBubbles4 />
       </label>
       <label>
         <input
@@ -28,7 +30,7 @@ function InteractionFilterForm({ typeFilter, setTypeFilter }) {
           checked={typeFilter === "visit"}
           onChange={handleFilterChange}
         />
-        📍
+        <FaPeopleArrows />
       </label>
       <label>
         <input
