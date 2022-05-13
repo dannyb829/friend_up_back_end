@@ -137,7 +137,11 @@ function FriendGallery({
       <h3>Friends</h3>
       <button onClick={handleAddFriendClick}>➕ Add Friend</button>
       <button onClick={handleEditGroupsClick}>✍️ Edit Groups</button>
-      <FriendFilterForm formData={filterData} setFormData={setFilterData} />
+      <FriendFilterForm
+        formData={filterData}
+        setFormData={setFilterData}
+        user={user}
+      />
       <hr />
       <FriendList
         friendships={friendshipsToDisplay}
