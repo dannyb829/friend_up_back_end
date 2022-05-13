@@ -67,32 +67,34 @@ function EditProfileForm({ user, setUser, setIsModal, setModalContent }) {
         </button>
       </div>
       <hr></hr>
-      <form onSubmit={handleSubmit}>
-        <label>
-          First Name
+      <form className="form-cont" onSubmit={handleSubmit}>
+        <div className="f-col">
+          <label>First Name</label>
           <input onChange={handleFormChange} name="first" value={first} />
-        </label>
-        <label>
-          Last Name
+        </div>
+        <div className="f-col">
+          <label>Last Name</label>
           <input onChange={handleFormChange} name="last" value={last} />
-        </label>
-        <label>
-          Email
+        </div>
+        <div className="f-col">
+          <label>Email</label>
           <input onChange={handleFormChange} name="email" value={email} />
-        </label>
-        <label>
-          Phone
+        </div>
+        <div className="f-col">
+          <label>Phone</label>
           <input onChange={handleFormChange} name="phone" value={phone} />
-        </label>
-        <label>
-          Profile Image URL
+        </div>
+        <div className="f-col">
+          <label>Profile Image URL</label>
           <input
             onChange={handleFormChange}
             name="image_url"
             value={image_url}
           />
-        </label>
-        <button className="btn">submit</button>
+        </div>
+        <div className="f-center">
+          <button className="btn">submit</button>
+        </div>
       </form>
     </>
   );

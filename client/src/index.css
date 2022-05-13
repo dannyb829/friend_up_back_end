@@ -560,3 +560,29 @@ hr {
 .row-item button {
   margin: 0 10px;
 }
+
+/* FORMS --------------------------------------------------------- */
+
+.form-cont {
+  padding: 1em;
+}
+
+.form-cont > div {
+  margin: 10px 0px;
+}
+
+.form-cont label {
+  font-weight: bold;
+  font-size: 0.9em;
+  padding: 3px;
+}
+
+.form-cont input {
+  background-color: var(--info-bg);
+  border-bottom: 1px solid gray;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 0.5em;
+  margin-left: 1em;
+}
