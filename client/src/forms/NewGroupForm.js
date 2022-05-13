@@ -5,7 +5,7 @@ function NewGroupForm({
   onNewGroupInputChange,
   toggleAddingGroup,
   setUser,
-  resetModal,
+  resetModal
 }) {
   const handleSubmit = (e) => {
     e.preventDefault();

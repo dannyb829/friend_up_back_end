@@ -37,7 +37,7 @@ function AddInteractionForm({ friend, setIsModal, setModalContent, setUser }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        console.log('interaction added');
         // setUserInteractions(data.interactions);
         setUser(data);
         setModalContent(null);
