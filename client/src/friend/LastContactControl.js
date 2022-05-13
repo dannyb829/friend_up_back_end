@@ -15,9 +15,9 @@ function LastContactControl({ friendship }) {
   const meetingDt = Date.parse(last_meeting_date);
 
   return (
-    <div className="info-container-lg">
-      <div className="lr-cont">
-        <span>
+    <div className="info-container-lg ">
+      <div className="lr-cont align-base">
+        <span className="icon-space">
           <ImBubbles4 />
         </span>
         <span className={communication_status + "-font"}>
@@ -27,11 +27,16 @@ function LastContactControl({ friendship }) {
                 addSuffix: true,
               })}
         </span>
-        <button>message</button>
+        <button
+          className="btn"
+          onClick={() => alert("messenger: coming soon!")}
+        >
+          message
+        </button>
       </div>
       <hr />
-      <div className="lr-cont">
-        <span>
+      <div className="lr-cont align-base">
+        <span className="icon-space">
           <FaPeopleArrows />
         </span>
         <span className={meeting_status + "-font"}>
@@ -41,7 +46,12 @@ function LastContactControl({ friendship }) {
                 addSuffix: true,
               })}
         </span>
-        <button>schedule</button>
+        <button
+          className="btn"
+          onClick={() => alert("scheduler: coming soon!")}
+        >
+          schedule
+        </button>
       </div>
     </div>
   );

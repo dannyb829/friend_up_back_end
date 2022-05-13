@@ -604,3 +604,22 @@ hr {
 .remove {
   margin: 2em;
 }
+
+.icon-space {
+  margin: 0px 0.5em;
+}
+
+.alert {
+  width: 20em;
+  text-align: center;
+}
+
+.alert-poor {
+  background-image: linear-gradient(var(--poor-gradient));
+}
+.alert-good {
+  background-image: linear-gradient(var(--good-gradient));
+}
+.alert-warning {
+  background-image: linear-gradient(var(--warn-gradient));
+}

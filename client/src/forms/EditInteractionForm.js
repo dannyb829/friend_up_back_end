@@ -79,7 +79,7 @@ function EditInteractionForm({
         <h3>Edit this Interaction with {friend["first_name"]}</h3>
       </div>
       <hr></hr>
-      <form onSubmit={handleSubmit}>
+      <form className="form-cont" onSubmit={handleSubmit}>
         <label>Date</label>
         <input
           type="date"
@@ -88,9 +88,9 @@ function EditInteractionForm({
           onChange={handleFormChange}
         />
 
-        <label>
-          Type
-          <label>
+        <div className="f-col">
+          <label>Type</label>
+          <div>
             <input
               name="isInPerson"
               type="radio"
@@ -98,9 +98,7 @@ function EditInteractionForm({
               checked={!isInPerson}
               onChange={handleFormChange}
             />
-            Communication
-          </label>
-          <label>
+            <label>Communication</label>
             <input
               name="isInPerson"
               type="radio"
@@ -108,26 +106,28 @@ function EditInteractionForm({
               checked={isInPerson}
               onChange={handleFormChange}
             />
-            In-Person
-          </label>
-        </label>
-        <label>
-          {isInPerson ? "Location" : "Method (call, text, etc.)"}
+            <label>In-Person</label>
+          </div>
+        </div>
+        <div className="f-col">
+          <label>{isInPerson ? "Location" : "Method (call, text, etc.)"}</label>
           <input
             name="locationOrMethod"
             value={locationOrMethod}
             onChange={handleFormChange}
           />
-        </label>
-        <label>
-          Description
+        </div>
+        <div className="f-col">
+          <label>Description</label>
           <textarea
             name="description"
             value={description}
             onChange={handleFormChange}
           />
-        </label>
-        <button className="btn">Update Interaction</button>
+        </div>
+        <div className="f-center">
+          <button className="btn">Update Interaction</button>
+        </div>
       </form>
     </>
   );
