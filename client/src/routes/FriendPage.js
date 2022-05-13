@@ -5,6 +5,7 @@ import InteractionHistory from "../friend/InteractionHistory";
 import { useParams } from "react-router-dom";
 import LoadingPage from "../utility/LoadingPage";
 import Error404 from "../utility/Error404";
+import FriendPreferences from "../friend/FriendPreferences";
 
 function FriendPage({
   userInteractions,
@@ -42,13 +43,16 @@ function FriendPage({
     <div>
       {alertMessage(friendship.communication_status, "communicate")}
       {alertMessage(friendship.meeting_status, "meet")}
-      <FriendProfile
-        friendship={friendship}
-        setIsModal={setIsModal}
-        setModalContent={setModalContent}
-        setUser={setUser}
-        groups={groups}
-      />
+      <div className="user-dash">
+        <FriendProfile
+          friendship={friendship}
+          setIsModal={setIsModal}
+          setModalContent={setModalContent}
+          setUser={setUser}
+          groups={groups}
+        />
+        <FriendPreferences friendship={friendship} />
+      </div>
       <InteractionHistory
         userInteractions={userInteractions}
         friend={friendship.friend}

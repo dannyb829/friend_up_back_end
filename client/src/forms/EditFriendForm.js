@@ -289,8 +289,10 @@ function EditFriendForm({
           <option value={365 / 12}>months</option>
         </select>
       </label>
-      <button>Update Friend</button>
-      <button onClick={handleDeleteClick}>Remove Friend</button>
+      <button className="btn">Update Friend</button>
+      <button className="link-button" onClick={handleDeleteClick}>
+        Remove Friend
+      </button>
     </form>
   );
 }

@@ -13,17 +13,22 @@ function LastContactControl({ friendship }) {
   const meetingDt = Date.parse(last_meeting_date);
 
   return (
-    <div>
-      <span>🗣</span>
-      <span className={communication_status + "-font"}>
-        {formatDistance(communicationDt, new Date(), { addSuffix: true })}
-      </span>
-      <button>message</button>
-      <span>📍</span>
-      <span className={meeting_status + "-font"}>
-        {formatDistance(meetingDt, new Date(), { addSuffix: true })}
-      </span>
-      <button>schedule</button>
+    <div className="info-container-lg">
+      <div className="lr-cont">
+        <span>🗣</span>
+        <span className={communication_status + "-font"}>
+          {formatDistance(communicationDt, new Date(), { addSuffix: true })}
+        </span>
+        <button>message</button>
+      </div>
+      <hr />
+      <div className="lr-cont">
+        <span>📍</span>
+        <span className={meeting_status + "-font"}>
+          {formatDistance(meetingDt, new Date(), { addSuffix: true })}
+        </span>
+        <button>schedule</button>
+      </div>
     </div>
   );
 }

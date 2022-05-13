@@ -17,6 +17,7 @@
   --main-bg-gradient: var(--bg-blue), var(--bg-gray);
   --container-border: white;
   --container-bg: rgba(255, 255, 255, 0.65);
+  --info-bg: rgba(255, 255, 255, 0.9);
   --logo-light: #3fbaff;
   --logo-dark: #187cb5;
   --logo-gradient: var(--logo-light), var(--logo-dark);
@@ -34,13 +35,19 @@
   --warn-gradient: var(--modal-bg-1), var(--warn-card);
   --good-card: #c3ffdb;
   --good-gradient: var(--modal-bg-1), var(--good-card);
+  --score-poor: #ffced9, #b02140;
+  --score-warn: #ffeec3, #b88b19;
+  --score-good: #c3ffdb, #0e6f35;
+  --button-1: white;
+  --button-2: #baebff;
+  --button-gradient: var(--button-1), var(--button-2);
 }
 
 /* APP GENERAL --------------------------------------------------------- */
-* {
+/* * {
   margin: 0;
   padding: 0;
-}
+} */
 
 html,
 body {
@@ -71,7 +78,7 @@ code {
   position: fixed;
   top: 0vh;
   left: 0vw;
-  width: 100vw;
+  width: 100%;
   height: var(--header-listed-height);
   padding: var(--header-padding);
 }
@@ -80,18 +87,21 @@ code {
   color: var(--header-font-color);
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1.6em;
+  margin-left: 0.5em;
 }
 
 .header button {
-  margin-right: 1em;
+  margin-right: 2em;
   background-color: var(--header-font-color);
   border-radius: 0.5em;
   padding: 0.4em;
   border: none;
   color: #187cb5;
   font-weight: bold;
+  font-size: 1em;
   opacity: 70%;
+  width: 6em;
 }
 
 /* PAGE CONTENT GENERAL --------------------------------------------------------- */
@@ -120,6 +130,32 @@ code {
   right: 1em;
 } */
 
+.f-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.f-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.f-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.f-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fit-width {
+  width: fit-content;
+}
+
 .flex-col {
   display: flex;
   flex-direction: column;
@@ -137,6 +173,24 @@ code {
   left: 0; */
 }
 
+.info-container {
+  background-color: var(--info-bg);
+  padding: 0.3em;
+  border-radius: 10px;
+  border: 1px solid gray;
+  width: fit-content;
+  min-width: 7em;
+}
+
+.info-container-lg {
+  background-color: var(--info-bg);
+  padding: 0.3em;
+  border-radius: 10px;
+  border: 1px solid gray;
+  width: fit-content;
+  min-width: 12em;
+}
+
 .content-container {
   padding: 1.5em;
   margin: 1em;
@@ -147,6 +201,11 @@ code {
 .page-container {
   border: 1px solid var(--container-border);
   background-color: var(--container-bg);
+}
+
+h2 {
+  text-align: center;
+  margin: 10px;
 }
 
 h3 {
@@ -213,6 +272,7 @@ hr {
   margin: 1em;
   width: 11em;
   height: 11em;
+  flex-shrink: 0;
 }
 
 .card .avatar {
@@ -345,6 +405,39 @@ hr {
   opacity: 100%;
 }
 
+.link-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1em;
+  color: var(--unclicked-gray);
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  opacity: 100%;
+}
+
+.btn {
+  /* background-color: transparent; */
+  background-image: linear-gradient(var(--button-gradient));
+  padding: 3px 10px;
+  font-weight: bold;
+  border-radius: 7px;
+  margin: 5px;
+  border: 1px solid gray;
+  transition-duration: 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  border-color: black;
+}
+
+.btn:disabled {
+  background-image: linear-gradient(var(--modal-gradient));
+}
+
 /* POPUP --------------------------------------------------------- */
 
 .popup-container {
@@ -397,8 +490,41 @@ hr {
   /* transition-duration: 0.2s; */
 }
 
-/* POPUP --------------------------------------------------------- */
+/* User Info --------------------------------------------------------- */
 
 .user-info {
-  width: 40em;
+  width: fit-content;
+}
+
+.score {
+  font-size: 6em;
+  font-weight: bold;
+  color: black;
+  -webkit-text-stroke: 3px black;
+}
+
+.score-good {
+  background: -webkit-linear-gradient(var(--score-good));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.score-warn {
+  background: -webkit-linear-gradient(var(--score-warn));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.score-poor {
+  background: -webkit-linear-gradient(var(--score-poor));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.score-container {
+  position: relative;
+}
+
+.user-dash {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
 }

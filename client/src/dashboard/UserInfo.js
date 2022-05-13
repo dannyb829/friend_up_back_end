@@ -23,13 +23,18 @@ function UserInfo({ user, setUser, setIsModal, setModalContent }) {
         <h3 className="f-l">
           {first_name} {last_name}
         </h3>
-        <button className="f-r" onClick={handleEditProfileClick}>
+        <button className="f-r link-button" onClick={handleEditProfileClick}>
           edit profile
         </button>
       </div>
       <hr />
-      <div>
+      <div className="f-row">
         <Avatar image_url={image_url} />
+        <div className="f-col">
+          <h4>Contact</h4>
+          <span>{user.email}</span>
+          {user.phone_number ? <span>{user.phone_number}</span> : null}
+        </div>
       </div>
     </div>
   );

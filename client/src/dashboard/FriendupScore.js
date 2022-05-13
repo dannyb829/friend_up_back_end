@@ -7,20 +7,32 @@ function FriendupScore({ user }) {
     ((friendships.length - friends_needing_attention) / friendships.length) *
       100
   );
+
+  let scoreClass = "";
+
+  switch (true) {
+    case friendupScore >= 66:
+      scoreClass = "good";
+      break;
+    case friendupScore >= 33:
+      scoreClass = "warn";
+      break;
+    case friendupScore < 33:
+      scoreClass = "poor";
+      break;
+  }
+
   return (
     <div className="content-container page-container">
-      <span>
-        <b>Friendup score:</b>
-      </span>
-      <span>{friendupScore}%</span>
-      <span>
-        {" "}
-        {friendships.length} <b>friendships</b>
-      </span>
-      <span>
-        {" "}
-        {friends_needing_attention} <b>need attention</b>
-      </span>
+      <h3>Friendup Score</h3>
+      <hr />
+      <div className="f-center score-container">
+        <span className={"score score-" + scoreClass}>{friendupScore}%</span>
+        <div className="f-col fit-width">
+          <span>{friendships.length} friendships</span>
+          <span>{friends_needing_attention} need attention</span>
+        </div>
+      </div>
     </div>
   );
 }

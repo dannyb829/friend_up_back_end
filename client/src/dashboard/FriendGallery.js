@@ -137,8 +137,12 @@ function FriendGallery({
       <div className="lr-cont">
         <h3>Friends</h3>
         <div>
-          <button onClick={handleAddFriendClick}>➕ Add Friend</button>
-          <button onClick={handleEditGroupsClick}>✍️ Edit Groups</button>
+          <button className="btn" onClick={handleAddFriendClick}>
+            ➕ Add Friend
+          </button>
+          <button className="btn" onClick={handleEditGroupsClick}>
+            ✍️ Edit Groups
+          </button>
         </div>
       </div>
       <FriendFilterForm

@@ -42,7 +42,9 @@ function InteractionHistory({
     <div className="content-container page-container">
       <div className="lr-cont">
         <h3>History</h3>
-        <button onClick={handleAddInteractionClick}>➕ Add Interaction</button>
+        <button className="btn" onClick={handleAddInteractionClick}>
+          ➕ Add Interaction
+        </button>
       </div>
       <InteractionFilterForm
         typeFilter={typeFilter}

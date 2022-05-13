@@ -117,7 +117,7 @@ function AddInteractionForm({ friend, setIsModal, setModalContent, setUser }) {
           onChange={handleFormChange}
         />
       </label>
-      <button>Add Interaction</button>
+      <button className="btn">Add Interaction</button>
     </form>
   );
 }

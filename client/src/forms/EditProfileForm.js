@@ -62,7 +62,9 @@ function EditProfileForm({ user, setUser, setIsModal, setModalContent }) {
     <>
       <div className="lr-cont">
         <h3>Edit Profile</h3>
-        <button onClick={onChangePasswordClick}>change password</button>
+        <button className="link-button" onClick={onChangePasswordClick}>
+          change password
+        </button>
       </div>
       <hr></hr>
       <form onSubmit={handleSubmit}>
@@ -90,7 +92,7 @@ function EditProfileForm({ user, setUser, setIsModal, setModalContent }) {
             value={image_url}
           />
         </label>
-        <button>submit</button>
+        <button className="btn">submit</button>
       </form>
     </>
   );

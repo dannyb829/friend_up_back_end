@@ -37,9 +37,11 @@ function NewGroupForm({
     <div>
       <form onSubmit={handleSubmit}>
         <input value={newGroupInput} onChange={onNewGroupInputChange} />
-        <button>submit</button>
+        <button className="btn">submit</button>
       </form>
-      <button onClick={toggleAddingGroup}>cancel</button>
+      <button className="btn" onClick={toggleAddingGroup}>
+        cancel
+      </button>
     </div>
   );
 }

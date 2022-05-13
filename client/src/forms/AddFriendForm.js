@@ -255,7 +255,7 @@ function AddFriendForm({ usergroups, setUser, setIsModal, setModalContent }) {
           <option value={365 / 12}>months</option>
         </select>
       </label>
-      <button>Add Friend</button>
+      <button className="btn">Add Friend</button>
     </form>
   );
 }

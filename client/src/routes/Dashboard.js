@@ -7,13 +7,13 @@ import FriendupScore from "../dashboard/FriendupScore";
 import LoadingPage from "../utility/LoadingPage";
 
 function Dashboard({ user, setIsModal, setModalContent, setUser }) {
-  if (!user) {
+  if (!user.id) {
     return <LoadingPage />;
   }
 
   return (
     <div className="flex-col">
-      <div>
+      <div className="user-dash">
         <UserInfo
           user={user}
           setUser={setUser}

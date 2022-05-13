@@ -41,7 +41,11 @@ function EditGroupsForm({ user, setUser, setModalContent, setIsModal }) {
     <div>
       <div className="lr-cont">
         <h3>Your Groups:</h3>
-        <button onClick={toggleAddingGroup} disabled={isAddingGroup}>
+        <button
+          className="btn"
+          onClick={toggleAddingGroup}
+          disabled={isAddingGroup}
+        >
           ➕ Add Group
         </button>
       </div>
