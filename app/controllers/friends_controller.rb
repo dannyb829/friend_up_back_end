@@ -15,6 +15,21 @@ class FriendsController < ApplicationController
   def update
     @friend.update!(friend_params)
     @friend.friendships.find_by!(user: @current_user).update!(friendship_params)
+
+    # create new group_friend if adding new group
+    params[:groups].each do |name|
+      if !@friend.groups.pluck(:group_name).include?(name)
+        @friend.group_friends.create!(
+          group_id: Group.find_by(group_name: name).id
+        )
+      end
+    end
+
+    #destroy existing group_friends that are no longer listed
+    @friend.group_friends.each do |gf|
+      gf.destroy if !params[:groups].include?(gf.group.group_name)
+    end
+
     render json: @current_user
   end
 
