@@ -13,7 +13,7 @@ function Dashboard({ user, setIsModal, setModalContent, setUser }) {
         setIsModal={setIsModal}
         setModalContent={setModalContent}
       />
-      <UpcomingInfo />
+      {/* <UpcomingInfo /> */}
       <FriendGallery
         friendships={user.friendships}
         setIsModal={setIsModal}

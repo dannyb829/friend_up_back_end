@@ -12,7 +12,8 @@ function UserInfo({ user, setUser, setIsModal, setModalContent }) {
   } = user;
 
   const friendupScore = parseInt(
-    (friends_needing_attention / friendships.length) * 100
+    ((friendships.length - friends_needing_attention) / friendships.length) *
+      100
   );
 
   const handleEditProfileClick = () => {
