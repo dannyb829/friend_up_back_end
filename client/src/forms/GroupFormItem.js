@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import UserInfo from "../dashboard/UserInfo";
 import EditGroupsForm from "./EditGroupsForm";
+import { FaTrashAlt } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa";
+import { GiCancel } from "react-icons/gi";
 
 function GroupFormItem({ group, setUser, resetModal }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -59,26 +63,43 @@ function GroupFormItem({ group, setUser, resetModal }) {
   };
 
   const handleCancelClick = () => {
-    setInput("");
+    setInput(group.group_name);
     setIsEditing(false);
   };
 
   return (
-    <div>
+    <div className="row-item">
       {isEditing ? (
         <>
           <form onSubmit={handleSubmit}>
-            <input value={input} onChange={onInputChange} />
-            <button>✔️</button>
+            <div className="lr-cont">
+              <div>
+                <input value={input} onChange={onInputChange} />
+              </div>
+
+              <div>
+                <button className="link-button">
+                  <FaCheck />
+                </button>
+                <button className="link-button" onClick={handleCancelClick}>
+                  <GiCancel />
+                </button>
+              </div>
+            </div>
           </form>
-          <button onClick={handleCancelClick}>cancel</button>
         </>
       ) : (
-        <>
+        <div className="lr-cont">
           <span>{group.group_name}</span>
-          <button onClick={() => setIsEditing(true)}>✍️</button>
-          <button onClick={handleDeleteClick}>X</button>
-        </>
+          <div>
+            <button className="link-button" onClick={() => setIsEditing(true)}>
+              <FaEdit />
+            </button>
+            <button className="link-button" onClick={handleDeleteClick}>
+              <FaTrashAlt />
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );

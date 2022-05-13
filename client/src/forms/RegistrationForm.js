@@ -91,10 +91,10 @@ function RegistrationForm({ setUser }) {
           <li>matches password</li>
         </ul>
       </label>
-      <button>submit</button>
+      <button className="btn">submit</button>
       <span>or</span>
       <Link to="/login">
-        <button>log in to existing account</button>
+        <button className="btn2">log in to existing account</button>
       </Link>
     </form>
   );

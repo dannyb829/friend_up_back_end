@@ -429,7 +429,19 @@ hr {
   transition-duration: 0.2s;
 }
 
-.btn:hover {
+.btn2 {
+  /* background-color: transparent; */
+  background-image: linear-gradient(var(--modal-gradient));
+  padding: 3px 10px;
+  font-weight: bold;
+  border-radius: 7px;
+  margin: 5px;
+  border: 1px solid gray;
+  transition-duration: 0.2s;
+}
+
+.btn:hover,
+.btn2:hover {
   transform: scale(1.1);
   border-color: black;
 }
@@ -527,4 +539,24 @@ hr {
   display: flex;
   flex-flow: wrap;
   justify-content: center;
+}
+
+/* ROW ITEM --------------------------------------------------------- */
+
+.row-item {
+  border: 1px solid gray;
+  background-color: var(--info-bg);
+  margin: 5px;
+  padding: 3px 10px;
+  align-items: center;
+  border-radius: 10px;
+  /* background-image: linear-gradient() */
+}
+
+.row-item span {
+  font-weight: bold;
+}
+
+.row-item button {
+  margin: 0 10px;
 }

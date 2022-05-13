@@ -44,9 +44,9 @@ function LoginForm({ setUser }) {
         placeholder="Password"
       />
       <a href="#">forgot password?</a>
-      <button>log in</button>
+      <button className="btn">log in</button>
       <Link to="/register">
-        <button>create new account</button>
+        <button className="btn2">create new account</button>
       </Link>
     </form>
   );
