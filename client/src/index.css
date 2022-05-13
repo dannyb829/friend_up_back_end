@@ -600,3 +600,7 @@ hr {
 .neg:hover {
   color: red;
 }
+
+.remove {
+  margin: 2em;
+}

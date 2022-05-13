@@ -207,11 +207,11 @@ function AddFriendForm({ usergroups, setUser, setIsModal, setModalContent }) {
           </div>
         </div>
         <div className="form-cont">
-          <h4>Group(s)</h4>
+          <h3>Group(s)</h3>
           <div>{groupCheckboxes}</div>
         </div>
         <div className="form-cont">
-          <h4>Communication Preferences</h4>
+          <h3>Communication Preferences</h3>
           <label>
             Remind me to speak with with this friend after not communicating
             for:
