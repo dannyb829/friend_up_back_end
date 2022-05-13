@@ -56,7 +56,7 @@ function InteractionListItem({
 
   return (
     <div className="row-item lr-cont">
-      <div>
+      <div className="spaced">
         <span>{inPerson ? <FaPeopleArrows /> : <ImBubbles4 />}</span>
         <span>
           {formatDistance(dateTime, new Date().setHours(0, 0, 0, 0), {

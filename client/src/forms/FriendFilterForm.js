@@ -61,68 +61,70 @@ function FriendFilterForm({ formData, setFormData, user }) {
           </select>
         </label>
       </div>
-      Status:
-      <label>
-        <input
-          name="isShowPoor"
-          type="checkbox"
-          defaultChecked
-          value={isShowPoor}
-          onChange={handleFormChange}
-        />
-        poor
-      </label>
-      <label>
-        <input
-          name="isShowWarning"
-          type="checkbox"
-          defaultChecked
-          value={isShowWarning}
-          onChange={handleFormChange}
-        />
-        warning
-      </label>
-      <label>
-        <input
-          name="isShowGood"
-          type="checkbox"
-          defaultChecked
-          value={isShowGood}
-          onChange={handleFormChange}
-        />
-        good
-      </label>
-      for
-      <label>
-        <input
-          name="typeFilter"
-          type="radio"
-          value="communicate"
-          checked={typeFilter === "communicate"}
-          onChange={handleFormChange}
-        />
-        <ImBubbles4 />
-      </label>
-      <label>
-        <input
-          name="typeFilter"
-          type="radio"
-          value="visit"
-          checked={typeFilter === "visit"}
-          onChange={handleFormChange}
-        />
-        <FaPeopleArrows />
-      </label>
-      <label>
-        <input
-          name="typeFilter"
-          type="radio"
-          value="either"
-          checked={typeFilter === "either"}
-          onChange={handleFormChange}
-        />
-        either
-      </label>
+      <div className="spaced">
+        <span>Status:</span>
+        <label>
+          <input
+            name="isShowPoor"
+            type="checkbox"
+            defaultChecked
+            value={isShowPoor}
+            onChange={handleFormChange}
+          />
+          poor
+        </label>
+        <label>
+          <input
+            name="isShowWarning"
+            type="checkbox"
+            defaultChecked
+            value={isShowWarning}
+            onChange={handleFormChange}
+          />
+          warning
+        </label>
+        <label>
+          <input
+            name="isShowGood"
+            type="checkbox"
+            defaultChecked
+            value={isShowGood}
+            onChange={handleFormChange}
+          />
+          good
+        </label>
+        <span>for</span>
+        <label>
+          <input
+            name="typeFilter"
+            type="radio"
+            value="communicate"
+            checked={typeFilter === "communicate"}
+            onChange={handleFormChange}
+          />
+          <ImBubbles4 />
+        </label>
+        <label>
+          <input
+            name="typeFilter"
+            type="radio"
+            value="visit"
+            checked={typeFilter === "visit"}
+            onChange={handleFormChange}
+          />
+          <FaPeopleArrows />
+        </label>
+        <label>
+          <input
+            name="typeFilter"
+            type="radio"
+            value="either"
+            checked={typeFilter === "either"}
+            onChange={handleFormChange}
+          />
+          either
+        </label>
+      </div>
     </form>
   );
 }

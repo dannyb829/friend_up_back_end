@@ -623,3 +623,9 @@ hr {
 .alert-warning {
   background-image: linear-gradient(var(--warn-gradient));
 }
+
+.spaced > span,
+.spaced > div,
+.spaced > label {
+  margin: 10px;
+}
