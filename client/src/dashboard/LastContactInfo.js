@@ -21,6 +21,7 @@ function LastContactInfo({ friendship }) {
             ? "-"
             : formatDistance(communicationDt, new Date(), { addSuffix: true })}
         </span>
+        <div></div>
       </div>
       <hr></hr>
       <div className="lr-cont">
@@ -30,6 +31,7 @@ function LastContactInfo({ friendship }) {
             ? "-"
             : formatDistance(meetingDt, new Date(), { addSuffix: true })}
         </span>
+        <div></div>
       </div>
     </div>
   );
