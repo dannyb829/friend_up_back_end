@@ -78,6 +78,7 @@ function AddFriendForm({ usergroups, setUser, setIsModal, setModalContent }) {
 
   // Handles form onSubmit event
   const handleSubmit = (e) => {
+    if (first && last && email && phone && meetingMax && communicationMax && meetingReminderInterval && communicationReminderInterval) {
     e.preventDefault();
 
     fetch(`/friends`, {
@@ -127,6 +128,13 @@ function AddFriendForm({ usergroups, setUser, setIsModal, setModalContent }) {
       .catch((error) => console.log(error.message));
 
     resetForm();
+    window.scrollTo({
+      top: document.body.clientHeight,
+      behavior: 'smooth',
+    })
+    }
+    else
+    alert('Friend not added, incomplete fields')
   };
 
   // Handles input onChange events: input name attributes must match formData keys

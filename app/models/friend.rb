@@ -11,6 +11,8 @@ class Friend < ApplicationRecord
   has_many :group_friends, dependent: :destroy
   has_many :groups, through: :group_friends
 
+  validates :first_name, :last_name, :email, :phone_number, presence: true
+
   def most_recent_communication_date
     communication = interactions.where(in_person?: false).order(:date).last
     communication ? communication.date.to_date : nil
