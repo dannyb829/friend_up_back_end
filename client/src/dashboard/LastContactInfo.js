@@ -17,14 +17,18 @@ function LastContactInfo({ friendship }) {
       <div className="lr-cont">
         <span>🗣</span>
         <span className={communication_status + "-font"}>
-          {formatDistance(communicationDt, new Date(), { addSuffix: true })}
+          {last_communication_date === "-"
+            ? "-"
+            : formatDistance(communicationDt, new Date(), { addSuffix: true })}
         </span>
       </div>
       <hr></hr>
       <div className="lr-cont">
         <span>📍</span>
         <span className={meeting_status + "-font"}>
-          {formatDistance(meetingDt, new Date(), { addSuffix: true })}
+          {last_meeting_date === "-"
+            ? "-"
+            : formatDistance(meetingDt, new Date(), { addSuffix: true })}
         </span>
       </div>
     </div>
